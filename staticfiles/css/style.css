@@ -1,0 +1,904 @@
+/*
+ Theme Name:   BCMEA
+ Theme URI:    https://bcmea.hotsoupcreative.com/
+ Description:  Airi Child Theme
+ Author:       Hotsoup
+ Author URI:   https://bcmea.hotsoupcreative.com/
+ Template:     airi
+ Version:      1.0.0
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+ Text Domain:  airichild
+*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
+:root{
+    --darkestBlue : #174f6d;
+    --darkBlue: #2789ab;
+    --lightBlue: #8acad8;
+    --siteYellow: #f6cb7f;
+    --siteGray: #666666;
+    --midGray: #a7a7a7;
+    --lightestBlue: #F4F9FA;
+    --lightGray: #f3f4f5;
+    --mainTransition: ease .2s all;
+}
+body{
+    font-family: 'Roboto', sans-serif !important;
+}
+h1,h2,h3,h4,h5{
+    font-family: 'Roboto', sans-serif !important;
+    text-transform: uppercase;
+}
+h1{
+    color: var(--darkestBlue);
+    font-weight: 700 !important;
+}
+h2{
+    color: var(--darkestBlue);
+    font-weight: 700 !important;
+}
+h3{
+    color: var(--lightBlue);
+    font-weight: 700 !important;
+}
+h4{
+    color: var(--siteGray);
+}
+h5{
+    color: var(--siteGray);
+    font-weight: 700 !important;
+}
+p{
+    font-size: 1.1em !important;
+}
+.font-size-4{
+    font-size: 4em;
+}
+@media (max-width: 781px){
+    .font-size-4{
+        font-size: 2.5em;
+    }
+}
+
+.gform_button{
+    background-color: var(--siteYellow) !important;
+    color: white !important;
+    border-radius: 10px !important;
+    border: none !important;
+    padding: 7px 15px !important;
+    text-transform: uppercase !important;
+    transition: var(--mainTransition) !important;
+    font-size: 1em !important;
+    float: right;
+}
+.gform_button:hover{
+    background: var(--darkestBlue) !important;
+}
+.site-button{
+    background: var(--siteYellow);
+    color: white;
+    border-radius: 10px;
+    padding: 0;
+    text-transform: uppercase;
+    transition: var(--mainTransition);
+}
+.site-button a{
+    color: unset;
+    background-color: unset;
+    font-size: 1em;
+    padding: 7px 15px;
+    transition: var(--mainTransition);
+}
+.site-button:hover{
+    background: var(--darkestBlue);
+}
+.site-button-blue{
+    background: var(--lightBlue);
+    color: white;
+    border-radius: 10px;
+    padding: 0;
+    text-transform: uppercase;
+    transition: var(--mainTransition);
+}
+.site-button-blue.active{
+    background: var(--darkestBlue);
+    color: var(--lightBlue);
+}
+.site-button-blue a{
+    color: unset;
+    background-color: unset;
+    font-size: 1em;
+    transition: var(--mainTransition);
+    padding: 7px 15px;
+}
+.site-button-arrow{
+    color: var(--siteYellow);
+    display: flex !important;
+    cursor: pointer;
+    margin-bottom: 0 !important;
+}
+.site-button-arrow a{
+    color: var(--siteYellow) !important;
+    background-color: unset;
+    font-size: 1em;
+    padding: 0;
+}
+.site-button-arrow::after{
+    content:"";
+    background-image: url(../../uploads/2021/10/BCMEA_Assets_Arrow_Yellow.png);
+    background-size: cover;
+    width: 130px;
+    background-position: right;
+}
+.site-button-arrow:hover a{
+    color: var(--lightBlue) !important;
+}
+.site-button-arrow:hover.site-button-arrow::after{
+    background-image: url(../../uploads/2021/10/BCMEA_Assets_Arrow_Blue.png);
+}
+.container-fluid, .site-content .container {
+    max-width: 2000px !important;
+}
+.site-content .container {
+    padding-left: 75px !important;
+    padding-right: 75px !important;
+  }
+.site-container{
+    padding: 35px 75px;
+    margin: 0;
+}
+.wp-block-columns {
+    margin: 0 !important;
+}
+@media (max-width: 767px) {
+    .site-content .container {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+    .site-container{
+        padding: 35px 15px;
+    }
+}
+.wp-block-image img {
+    width: 100%;
+}
+.entry-title{
+    display: none;
+}
+@media (min-width: 600px) and (max-width: 781px){
+    .wp-block-column:not(:only-child) {
+        flex-basis: 100%!important;
+        flex-grow: 0;
+    }
+    .wp-block-column:nth-child(2n) {
+        margin-left: 0;
+    }
+}
+@media (min-width: 781px) and (max-width: 1024px) {
+    .two-col-container h2{
+        font-size: 3em;
+        word-spacing: 100vw;
+    }
+}
+@media (min-width: 1024px){
+    .two-col-container h2{
+        font-size: 4em;
+        word-spacing: 100vw;
+    }
+}
+/* Header ---------------------- */
+.main-navigation + .header-search-wrapper {
+    display: none !important;
+}
+.is-sticky .site-header .custom-logo-link img {
+    max-width: 100% !important;
+}
+/* Menu ---------------------- */
+
+
+.menuStyle2 .main-navigation a:hover{
+    color: var(--lightBlue) !important;
+}
+.main-navigation ul ul li {
+    border: none !important;
+    border-bottom: 1px solid var(--siteGray) !important;
+}
+.main-navigation ul ul li:last-child {
+    border: none !important;
+}
+.main-navigation ul ul a {
+    width: auto !important;
+}
+#site-navigation ul ul li {
+    min-width: 250px !important;
+}
+
+.menuStyle2 .main-navigation a, .menuStyle2 .header-search-toggle, .menuStyle2 .header-search-cart li a {
+    color: var(--darkestBlue) !important;
+    font-size: 1.4em !important;
+    font-weight: 700!important;
+}
+.menuStyle2 .main-navigation a:hover:after,
+.menuStyle2 .main-navigation .current-menu-item:after {
+    display: none !important;
+}
+@media (min-width: 1199px){
+    .mobile-nav{
+        display: none !important; /*to hide the logo-header section in desktop version*/
+    }
+}
+.mobile-nav .custom-logo-link{
+    padding:1px 0 0 0;
+}
+@media (max-width: 1199px){
+site-header .main-navigation{
+    top: 0 !important;
+}
+.mobile-nav {
+    background: var(--darkestBlue) !important;
+}
+.mobile-menu-toggle{
+    z-index: 1000;
+}
+.menuStyle2 .mobile-menu-toggle_lines, .menuStyle2 .mobile-menu-toggle_lines:before, .menuStyle2 .mobile-menu-toggle_lines:after {
+    background-color: var(--darkBlue) !important;
+}
+.mobile-menu-active .mobile-menu-toggle .mobile-menu-toggle_lines {
+    background: none !important;
+}
+.mobile-menu-active .main-navigation {
+    background: var(--darkestBlue) !important;
+}
+.menuStyle2 .main-navigation a, .menuStyle2 .header-search-toggle, .menuStyle2 .header-search-cart li a {
+    color: white !important;
+    font-size: 2em !important;
+    font-weight: 400!important;
+    width: fit-content;
+    margin: 0 auto;
+}
+.main-navigation li {
+    border: none !important;
+    width: fit-content;
+    margin: 0 auto;
+}
+.main-navigation ul .subnav-toggle:before {
+    color: white;
+    font-size: 2.2em;
+    font-weight: 700;
+    transform: none;
+    transition: none;
+}
+.main-navigation ul .subnav-toggle {
+    height: 100px;
+}
+.main-navigation ul .sub-menu, .main-navigation ul .children,
+#site-navigation ul ul li {
+    background: none !important;
+}
+.main-navigation ul ul li {
+    border: none !important;
+    padding: 0;
+}
+.menuStyle2 .main-navigation .sub-menu a{
+    color: var(--lightBlue) !important;
+}
+.menuStyle2 .main-navigation a:hover{
+    color: white!important;
+}
+.menu-main-container{
+    margin-top: 2em;
+}
+.main-navigation ul .open:before {
+    content: "\2212";
+    color: white;
+    font-size: 2.2em;
+    font-weight: 700;
+    transform: none;
+    transition: none;
+}
+.main-navigation li:first-of-type {
+    padding: 0 25px;
+}
+}
+/* Footer ---------------------- */
+.site-footer{
+    display: none !important;
+}
+.footer-widgets{
+    background: var(--darkestBlue) !important;
+    border: none !important;
+    padding-top: 30px;
+    padding-bottom: 10px;
+}
+.footer-widgets section{
+    margin-bottom: 0;
+}
+.footer-widgets .sidebar-column{
+    max-width: 100% !important;
+    flex:0 0 100% !important;
+}
+.footer-widgets .sidebar-column section{
+    display: flex;
+    justify-content: center;
+}
+.footer-widgets .sidebar-column .widget_media_image img{
+    max-width: 550px;
+}
+.menu-footer-container .menu{
+    display: flex;
+}
+.menu-footer-container .menu a{
+    color: white !important;
+    font-size: 1.4em !important;
+    font-weight: 500!important;
+    padding-right: 1em;
+}
+.menu-footer-container .menu li:last-child a{
+    padding-right: 0;
+}
+.footer-social-img{
+    width:60px;
+}
+.footer-social-container{
+    display: flex;
+}
+.footer-copyright{
+    color: var(--lightBlue) !important;
+    margin-top: 20px;
+    font-size: .9em;
+}
+@media (max-width: 1199px){
+    .menu-footer-container .menu{
+        flex-direction: column;
+        align-items: center;
+    }
+    .menu-footer-container .menu a{
+        padding-right: 0;
+        font-size: 1.2em !important;
+        font-weight: 400!important;
+    }
+    .menu-footer-container .menu li{
+        padding-bottom: 7px;
+    }
+    .widget_nav_menu{
+        margin-bottom: 20px !important;
+    }
+}
+/*Home page ---------------------*/
+.hero{
+    min-height: 700px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right;
+    color: white;
+    position: relative;
+}
+.home-hero{
+    background-image: url(../../uploads/2021/10/BCMEA_Header_Home.png);
+}
+.hero h1{
+    color: white;
+    word-spacing: 100vw;
+}
+.site-content{
+    padding: 0;
+}
+.page-content, .entry-content, .entry-summary, .site-main {
+    margin: 0;
+    padding: 0;
+}
+.hero-text-container{
+    position: absolute;
+    top: 25%;
+
+}
+.hero-text-container p{
+    max-width: 440px;
+}
+@media (max-width: 1199px){
+    .hero{
+        min-height: 500px;
+        background-position: center;
+    }
+.site-content .container {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+}
+.goals-container{
+    background: var(--lightestBlue);
+    position: relative;
+    margin-bottom: 50px;
+}
+.goals-container h1{
+    word-spacing: 100vw;
+}
+.goals-icon-text-container{
+    display: flex;
+    border-bottom: 1px solid var(--siteGray);
+    margin-top: 15px;
+}
+.goals-icon-text-container figure{
+    width: 70px;
+    margin-right: 20px;
+}
+.goals-wave{
+    position: absolute;
+    left: 70px;
+    bottom: -70px;
+    width: 250px !important;
+}
+.goals-text-container .wp-block-columns:last-child .goals-icon-text-container{
+    border-bottom: none !important;
+}
+@media (max-width: 767px){
+    .goals-icon-text-container p{
+        border-bottom: 1px solid var(--siteGray) !important;
+        padding-bottom: 20px !important;
+    }
+    .goals-text-container .wp-block-columns:last-child .goals-icon-text-container p{
+        border-bottom: none !important;
+    }
+    .goals-icon-text-container{
+        border-bottom: none !important;
+        margin-top: 0 !important;
+    }
+    .goals-wave {
+        position: absolute;
+        left: 20px;
+        bottom: -50px;
+        width: 200px !important;
+    }
+    .goals-container h1{
+        word-spacing: inherit;
+    }
+}
+.partner-logos-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.partner-logos-container figure{
+    max-width: 200px;
+    margin: 2em 0;
+}
+/* Slider --------------------- */
+.carousel-container{
+    padding: 35px 0;
+}
+.slick-slide.home-slider figure{
+    height: 100%;
+}
+.slick-slide.home-slider img{
+    height: 100%;
+    width: fit-content;
+}
+.wp-block-image {
+    margin: 0;
+    padding: 0;
+}
+.home-slider-left{
+    background: var(--darkestBlue);
+    color: white;
+}
+.slick-dotted.slick-slider {
+    margin-bottom: 0;
+}
+.wp-block-column:not(:first-child) {
+    margin-left: 0;
+}
+.wp-block-cb-carousel.cb-padding .slick-slide {
+    padding-left: 0;
+    padding-right: 0;
+}
+.slider-left-side{
+    padding: 75px 25px 75px 75px;
+}
+.home-slider-left h1{
+    color: white;
+    font-size: 2.25em;
+}
+.carousel-container .slick-dots{
+    bottom: 60px; 
+    position: absolute;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+    display: flex;
+    width: auto;
+    left: 42%;
+}
+.partner-slider-wrapper .slick-dots{
+    left:75px !important;
+    bottom: 75px !important;
+}
+.partner-slider-wrapper .slick-dots li {
+    border: 1px solid var(--siteGray) !important;
+}
+.partner-slider-wrapper .slick-dots li.slick-active {
+    background-color: var(--siteGray) !important;
+}
+.carousel-container .slick-dots li {
+    border: 1px solid white;
+    border-radius: 50%;
+    width: 17px !important;
+    height: 17px !important;
+    position: relative;
+    display: inline-block;
+    margin: 0 5px;
+    padding: 0;
+    cursor: pointer;
+}
+.slick-dots {
+    list-style: none;
+}
+.carousel-container .slick-dots li.slick-active {
+    background-color: white;
+}
+.slick-dots li button {
+    visibility: hidden;
+}
+.slider-image-side{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right;
+    color: white;
+    position: relative;
+}
+.slider-image-first{
+    background-image: url(../../uploads/2021/10/BCMEA_Home.jpg);
+}
+@media (max-width: 781px) {
+    .slider-left-side{
+        padding: 75px 15px;
+    }
+    .home-slider-left {
+        order: 2
+
+    }
+    .slider-image-side{
+        min-height: 400px;
+    }
+    .carousel-container .slick-dots{
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+    }  
+    .partner-slider-wrapper .slick-dots {
+        bottom: 20px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+    }  
+}
+@media (max-width: 450px) {
+    .slider-image-side{
+        min-height: 300px;
+    }
+}
+/* About page ------------------ */
+.our-mandate{
+    background: var(--lightGray);
+}
+.our-mandate figure{
+    width: 100px;
+}
+@media (max-width: 781px){
+    .our-mandate .mandate-blocks:not(:last-child){
+        border-right: none !important;
+        border-bottom: 1px solid var(--lightBlue) !important;
+    }
+    .mandate-blocks{
+        padding: 0 !important;
+    }
+}
+.our-mandate .mandate-blocks:not(:last-child){
+    border-right: 1px solid var(--lightBlue);
+}
+.our-mandate .mandate-blocks:not(:last-child){
+    padding-right: 20px;
+}
+.our-mandate .mandate-blocks:not(:first-child){
+    padding-left: 20px
+}
+.mandate-hero{
+    background-image: url(../../uploads/2021/10/BCMEA_Hero_About_1.png);
+}
+.initiatives-hero{
+    background-image: url(../../uploads/2021/10/BCMEA_Hero_About_2.png);
+}
+.initiative-wave {
+    position: absolute;
+    width: 400px;
+    bottom: -100px;
+    z-index: -1;
+    right: 50px;
+}
+.initiative-left-padding{
+    padding-left: 30px;
+}
+@media (max-width: 781px){
+.initiative-wave {
+    top: 70px;
+    width: 250px;
+    }
+.initiative-left-padding{
+    padding-left: 0;
+}
+}
+.initiative-buttons-wrapper {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    top: -20px;
+}
+.light-gray-bg{
+    background-color: var(--lightGray);
+}
+.single-wave{
+position: absolute;
+left: 0;
+top: -30px;
+}
+.single-wave img{
+    width: 140px;
+}
+/* Our Partners ------------------- */
+.our-partners-hero{
+    background-image: url(../../uploads/2021/10/BCMEA_Hero_About_3.png);
+}
+@media (max-width: 781px){
+    .partners-slider-left{
+        padding-bottom: 0;
+        text-align: center;
+    }
+    .partners-slider-right figure{
+        margin: 0 auto;
+    }
+    .partners-slider-right{
+        padding-top: 0;
+    }
+}
+.partners-slider-right figure{
+    width: 200px;
+    margin-bottom: 20px;
+}
+.partner-slider-wrapper{
+    background: var(--lightGray);
+}
+/* Allyship ----------------- */
+.allyship-hero{
+    background-image: url(../../uploads/2021/10/BCMEA_Hero_Programs.png);
+}
+.allyship-wave{
+    position: absolute;
+    width: 250px;
+    left: -10px;
+    bottom: -35px;
+}
+.mb-3{
+    margin-bottom: 30px !important;
+}
+.register-container{
+    background: var(--darkBlue);
+    color: white;
+    display: flex;
+    align-items: center;
+}
+.signup-btn{
+    margin-left: 1.5em;
+}
+.register-container p{
+    margin: 0 !important;
+}
+@media (max-width: 781px){
+    .allyship-wave{
+        display: none;
+    }
+    .mb-3{
+        margin-bottom: 0 !important;
+    }
+    .register-container{
+        flex-direction: column;
+        align-items: start;
+    }
+    .register-container p{
+        margin-bottom: 1rem !important;
+    }
+    .signup-btn{
+        margin-left: 0 !important;
+    }
+}
+
+/* take action ----------------- */
+.action-hero{
+    background-image: url(../../uploads/2021/10/BCMEA_Hero_Programs_2.png);
+}
+.action-slider-img{
+    width: 300px;
+}
+.action-slider-img img{
+    border: 10px solid white;
+}
+.action-slider-wrapper{
+    display: flex;
+    align-items: center;
+}
+.action-slider-social-wrapper{
+    width: 400px;
+}
+.action-slider-social-wrapper p{
+    margin: 0 0 0 20px !important;
+    padding: 0 !important;
+}
+.action-slider-social-wrapper p a{
+    color: var(--midGray);
+}
+.action-slider-social-wrapper .wp-block-group__inner-container{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+.action-slider-social-wrapper figure{
+    width: 40px;
+}
+@media (min-width: 1199px){
+    .action-slider .slick-track{
+        width: 100% !important;
+    }
+    .action-slider button{
+        display: none !important;
+    }
+}
+@media (max-width: 781px) {
+    .action-slider-img,
+    .action-slider-social-wrapper {
+        margin: 0 auto !important;
+    }
+    .action-slider-social-wrapper .wp-block-group__inner-container {
+        justify-content: center;
+    }
+    .action-slider-social-wrapper{
+        padding-bottom: 20px;
+    }
+}
+.action-slider .slick-prev {
+    left: 0 !important;
+    z-index: 100;
+}
+.action-slider .slick-next {
+    right: 0 !important;
+    z-index: 100;
+}
+.action-slider .slick-next::before {
+    content: '';
+    color: var(--darkBlue);
+    border-right: 7px solid var(--darkBlue);
+    border-bottom: 7px solid var(--darkBlue);
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    right: 20px;
+    transform: rotate(-45deg);
+}
+.action-slider .slick-prev:before {
+    content: '';
+    color: var(--darkBlue);
+    border-right: 7px solid var(--darkBlue);
+    border-bottom: 7px solid var(--darkBlue);
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    left: 20px;
+    transform: rotate(135deg);
+
+}
+/* Formean ----------------- */
+.foreman-hero{
+    background-image: url(../../uploads/2021/10/BCMEA_Hero_Careers_4.png);
+}
+blockquote p em{
+    color: var(--lightBlue);
+    font-size: 1.7em;
+}
+blockquote{
+    background: none;
+    border: none;
+}
+.foreman-opportunity{
+    text-align: center;
+    background: var(--lightestBlue);
+    padding-bottom: 100px;
+}
+.companies-logo-block{
+    display: flex;
+    border: 1px solid var(--lightGray);
+    border-radius: 15px;
+    flex-direction: column;
+    align-items: center;
+    width: 250px;
+    height: 250px;
+    justify-content: center;
+    background: white;
+    margin: 0 10px 10px 0 !important;
+}
+.companies-logo-block figure{
+    max-width: 150px;
+    margin: 2.5em 0;
+}
+.companies-logo-block figure {
+    max-width: 220px;
+    margin: 4em 0 1.5em 0;
+}
+.companies-logo-block p{
+    text-align: center;
+}
+.companies-logo-block p a{
+    color: var(--lightBlue);
+}
+.opportunities-bottom-wrapper {
+    width: 100%;
+    display: flex;
+    margin-top: -120px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+/* Superintendent ----------------- */
+.superintendent-hero{
+    background-image: url(../../uploads/2021/10/BCMEA_Hero_Careers_1.png);
+}
+/* Operatioon Managers ----------------- */
+.managers-hero{
+    background-image: url(../../uploads/2021/10/BCMEA_Hero_Careers_2.png);
+}
+/* Contact ------------------------- */
+.contact-container{
+    background-image: url(../../uploads/2021/10/Contact_Background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    position: relative;
+    padding-top: 3em;
+    padding-bottom: 4em;
+}
+.contact-container h1,
+.contact-container h3{
+    color: white;
+}
+.contact-container h1{
+    font-size: 4em;
+    margin-top: 1em;
+}
+.contact-container .icon{
+    flex-basis: 65px;
+    flex-grow: 0;
+}
+.contact-container .icon figure{
+    width: 60px;
+}
+@media (max-width: 781px){
+    .contact-container .icon{
+        flex-basis: 65px !important;
+        flex-grow: 0 !important;
+    }
+    .contact-container .address-wrapper{
+        flex-grow: 1;
+        flex-basis: 0 !important;
+    }
+}
+.address-wrapper{
+    margin-bottom: 15px;
+}
+.contact-wave{
+    position: absolute;
+    left: 0;
+    bottom: -26px;
+    width: 300px;
+}
+.contact-container .gform_title{
+    display: none;
+}
+.contact-container input::placeholder,
+.contact-container textarea::placeholder{
+    color: var(--midGray) !important;
+}

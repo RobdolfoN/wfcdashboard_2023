@@ -1,0 +1,17 @@
+{% extends "admin/base.html" %}
+
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'admin:index' %}"> <a>Waterfront Council Admin Panel</a></a></h1>
+{% endblock %}
+
+
+
+
+{% block content %}
+  {% block object-tools %}{% endblock %}
+
+  {{ content }}
+
+
+{% endblock %}
+{% block sidebar %}{% endblock %}

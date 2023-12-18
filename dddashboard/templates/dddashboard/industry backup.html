@@ -1,0 +1,968 @@
+{%  extends 'dddashboard/dashboard_navbar_footer.html' %}
+{% load static %}
+{% block content %}
+
+
+            <div id="content" class="site-content">
+
+                <div class="container">
+                    <div class="row">
+                        <div id="primary" class="content-area fullwidth col-md-12">
+                            <main id="main" class="site-main" role="main">
+
+
+                                <article id="post-1082" class="post-1082 page type-page status-publish hentry">
+                                    <header class="entry-header">
+                                        <h1 class="entry-title">Industry</h1>
+                                    </header><!-- .entry-header -->
+
+
+                                    <div class="entry-content">
+
+                                        <div class="is-layout-flex wp-container-70 wp-block-columns main-section1 site-container">
+                                            <div class="is-layout-flow wp-block-column">
+                                                <h1>DIVERSITY DATA DASHBOARD</h1>
+                                                <form action="{{filter}}">
+                                                <select id="select-size" 
+                                                class="dashboard-select"
+                                                name="size"
+                                                autocomplete="off"
+                                                hx-get="{% url 'industry' %}"
+                                                hx-target="{% url 'industry' %}"
+                                                onchange="this.form.submit();"> 
+                                                    <option value="{% url 'industry' %}">ALL COMPANY SIZES</a>
+                                                    <option href="{% url 'small_industry' %}" type="submit">SMALL</a>
+                                                    <!--option value="{{medium}}">MEDIUM</option-->
+                                                    <option href="{% url 'large_industry' %}" type="submit">LARGE</a>
+                                                </select>
+                                                </form>
+                                                <form action=""></form>
+
+                                                <div class="is-layout-flex wp-container-34 wp-block-columns section">
+                                                    <div class="is-layout-flow wp-block-column overview">
+                                                        <h3 class="header">INDUSTRY OVERVIEW</h3>
+
+
+
+                                                        <div class="is-layout-flex wp-container-32 wp-block-columns overview-inner-wrapper">
+                                                            <div class="is-layout-flow wp-block-column max-width-display manage-lable">
+                                                                <div class="is-layout-flex wp-container-29 wp-block-columns">
+                                                                    <div class="is-layout-flow wp-block-column vertical-title-wrapper" style="flex-basis:10px">
+                                                                        <p class="vertical-title">JOB LEVEL</p>
+                                                                    </div>
+
+                                                                    <div class="is-layout-flow wp-block-column bar-labels-wrapper">
+                                                                        <div class="is-layout-flex wp-container-3 wp-block-columns">
+                                                                            <div class="is-layout-flow wp-block-column">
+                                                                                <p>Executive</p>
+                                                                                <p>Senior Leader</p>
+                                                                                <p>Manager / Supervisor / Superintendent </p>
+                                                                                <p>Foreman</p>
+                                                                                <p>Individual Contributor</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="is-layout-flow wp-block-column d-flex">
+                                                                        <div class="is-layout-flex wp-container-15 wp-block-columns multi-graph-wrapper">
+                                                                            <div class="is-layout-flow wp-block-column single-graph">
+                                                                                <div  class="is-layout-flex wp-container-6 wp-block-columns">
+                                                                                    <div class="is-layout-flow wp-block-column">
+																						<!--figure class="wp-block-image size-full circle"-->
+																							<!--img decoding="async" width="470" height="466"  src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Pie_Chart.png" alt="" class="wp-image-1111" />
+                                                                                        </figure-->
+																						<figure class="wp-block-image size-full circle" style="max-width: 150; max-height: 175;">{{ sex_dchart1|safe }}</figure>
+                                                                                        
+																						<h6 class="has-text-align-center circle-title">Sex</h6>
+                                                                                        
+																							<div class="graph-info-colors">
+																								<div class="single-item-info">
+																									<img decoding="async" src="{% static 'images/BCMEA_Squares_2.png' %}"><span>Male</span>
+																								</div>
+																								<div class="single-item-info">
+																									<img decoding="async"  src="{% static 'images/BCMEA_Squares_3.png' %}"><span>Female</span>
+																								</div>
+																								<div class="single-item-info">
+																									<img decoding="async" src="{% static 'images/BCMEA_Squares_1.png' %}"><span>Other</span>
+																								</div>
+																							
+																							</div>
+
+                                                                                    </div>
+																					
+																						
+																					
+                                                                                </div>
+
+                                                                                <div class="is-layout-flex wp-container-8 wp-block-columns">
+                                                                                    <div class="is-layout-flow wp-block-column">
+                                                                                        <figure class="wp-block-image size-full is-resized bar" style="max-width: 170px;">
+																							{{ sex_executive_barchart|safe }}
+                                                                                            <!--img decoding="async" sizes="(max-width: 110px) 100vw, 110px" /-->
+                                                                                            <figcaption class="wp-element-caption"> Executive</figcaption>
+                                                                                        </figure>
+
+																						<figure class="wp-block-image size-full is-resized bar" style="max-width: 170px;">
+																							{{ sex_senior_leader_barchart|safe }}
+                                                                                            <!--img decoding="async" sizes="(max-width: 110px) 100vw, 110px" /-->
+                                                                                            <figcaption class="wp-element-caption"> Senior Leader </figcaption>
+                                                                                        </figure>
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar" style="max-width: 170px;">
+																							{{ sex_manager_s_s_leader_barchart|safe }}
+                                                                                            <!--img decoding="async" sizes="(max-width: 110px) 100vw, 110px" /-->
+                                                                                            <figcaption class="wp-element-caption">  Manager / Supervisor / Superintendent </figcaption>
+                                                                                        </figure>
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar" style="max-width: 170px;">
+																							{{ sex_foreperson_leader_barchart|safe }}
+                                                                                            <!--img decoding="async" sizes="(max-width: 110px) 100vw, 110px" /-->
+                                                                                            <figcaption class="wp-element-caption"> Foreman</figcaption>
+                                                                                        </figure>
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar" style="max-width: 170px;">
+																							{{ sex_individual_contributor_leader_barchart|safe }}
+                                                                                            <!--img decoding="async" src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png" alt=""
+                                                                                                class="wp-image-1110" width="110" height="12" srcset="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png 933w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-768x86.png 768w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-720x80.png 720w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-850x104.png 850w"
+                                                                                                sizes="(max-width: 110px) 100vw, 110px" /-->
+                                                                                            <figcaption class="wp-element-caption"> Individual Contributor </figcaption>
+                                                                                        </figure>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="is-layout-flow wp-block-column single-graph">
+                                                                                <div  class="is-layout-flex wp-container-11 wp-block-columns">
+                                                                                    <div  class="is-layout-flow wp-block-column">
+                                                                                        <!--figure class="wp-block-image size-full circle">
+                                                                                            <img decoding="async"  width="470" height="466"
+                                                                                                src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Pie_Chart.png"
+                                                                                                alt="" class="wp-image-1111" />
+                                                                                        </figure-->
+																						<!--div class="wp-block-image size-full circle">{{ minority_dchart1|safe }}</div-->
+                                                                                        <figure class="wp-block-image size-full circle" style="max-width: 150; max-height: 175;">{{ minority_dchart1|safe }}</figure>
+																						
+                                                                                        <h6 class="has-text-align-center circle-title"> Visible Minority</h6>
+
+                                                                                        <div class="graph-info-colors">
+                                                                                            <div class="single-item-info">
+                                                                                                <img decoding="async" src="{% static 'images/BCMEA_Squares_3.png' %}"><span>Yes</span>
+                                                                                            </div>
+                                                                                            <div class="single-item-info">
+                                                                                                <img decoding="async" src="{% static 'images/BCMEA_Squares_1.png' %}"><span>No</span>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <div class="is-layout-flex wp-container-13 wp-block-columns">
+                                                                                    <div class="is-layout-flow wp-block-column">
+                                                                                        <figure class="wp-block-image size-full is-resized bar" style="max-width: 170px;">
+																							{{ minority_executive_barchart|safe }}
+                                                                                            <!--img decoding="async" loading="lazy" src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png"
+                                                                                                alt="" class="wp-image-1110" width="110" height="12" srcset="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png 933w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-768x86.png 768w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-720x80.png 720w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-850x104.png 850w"
+                                                                                                sizes="(max-width: 110px) 100vw, 110px" /-->
+                                                                                            <figcaption class="wp-element-caption"> Executive</figcaption>
+                                                                                        </figure>
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar" style="max-width: 170px;">
+																							{{ minority_senior_leader_barchart|safe }}
+                                                                                            <!--img decoding="async" loading="lazy" src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png"
+                                                                                                alt=""  class="wp-image-1110" width="110" height="12" srcset="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png 933w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-768x86.png 768w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-720x80.png 720w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-850x104.png 850w"
+                                                                                                sizes="(max-width: 110px) 100vw, 110px" /-->
+                                                                                            <figcaption class="wp-element-caption">
+                                                                                                Senior Leader
+                                                                                            </figcaption>
+                                                                                        </figure>
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar" style="max-width: 170px;">
+																							{{ minority_manager_s_s_leader_barchart|safe }}
+                                                                                            <!--img decoding="async" loading="lazy" src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png"
+                                                                                                alt="" class="wp-image-1110" width="110" height="12" srcset="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png 933w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-768x86.png 768w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-720x80.png 720w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-850x104.png 850w"
+                                                                                                sizes="(max-width: 110px) 100vw, 110px" /-->
+																							
+                                                                                            <figcaption class="wp-element-caption"> Manager / Supervisor / Superintendent
+                                                                                            </figcaption>
+                                                                                        </figure>
+
+
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar" style="max-width: 170px;">
+																							{{ minority_foreperson_leader_barchart|safe }}
+                                                                                            <!--img decoding="async" loading="lazy" src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png"
+                                                                                                alt="" class="wp-image-1110"  width="110" height="12" srcset="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png 933w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-768x86.png 768w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-720x80.png 720w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-850x104.png 850w"
+                                                                                                sizes="(max-width: 110px) 100vw, 110px" /-->
+                                                                                            <figcaption class="wp-element-caption"> Foreman </figcaption>
+                                                                                        </figure>
+
+
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar" style="max-width: 170px;">
+																							{{ minority_individual_contributor_leader_barchart|safe }}
+                                                                                            <!--img decoding="async" loading="lazy" src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png"
+                                                                                                alt="" class="wp-image-1110" width="110" height="12" srcset="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png 933w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-768x86.png 768w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-720x80.png 720w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-850x104.png 850w"
+                                                                                                sizes="(max-width: 110px) 100vw, 110px" /-->
+                                                                                            <figcaption class="wp-element-caption"> Individual Contributor </figcaption>
+                                                                                        </figure>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+
+
+                                                                    <div class="is-layout-flow wp-block-column d-flex">
+                                                                        <div class="is-layout-flex wp-container-27 wp-block-columns multi-graph-wrapper">
+                                                                            <div  class="is-layout-flow wp-block-column single-graph">
+                                                                                <div  class="is-layout-flex wp-container-18 wp-block-columns">
+                                                                                    <div  class="is-layout-flow wp-block-column">
+                                                                                        <!--figure  class="wp-block-image size-full circle">
+                                                                                            <img decoding="async"  width="470" height="466"  src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Pie_Chart.png"
+                                                                                                alt="" class="wp-image-1111" />
+                                                                                        </figure-->
+																						<div class="wp-block-image size-full circle">{{ aboriginal_dchart1|safe }}</div>
+                                                                                        <h6 class="has-text-align-center circle-title"> Aboriginal</h6>
+
+                                                                                        <div class="graph-info-colors">
+                                                                                            <div class="single-item-info">
+                                                                                                <img decoding="async" src="{% static 'images/BCMEA_Squares_3.png' %}"><span>Yes</span>
+                                                                                            </div>
+                                                                                            <div class="single-item-info">
+                                                                                                <img decoding="async" src="{% static 'images/BCMEA_Squares_1.png' %}"><span>No</span>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+
+
+                                                                                <div
+                                                                                    class="is-layout-flex wp-container-20 wp-block-columns">
+                                                                                    <div class="is-layout-flow wp-block-column">
+                                                                                        <figure class="wp-block-image size-full is-resized bar" style="max-width: 170px;">
+																							{{ aboriginal_executive_barchart|safe }}
+                                                                                           <!--img decoding="async" loading="lazy" src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png"
+                                                                                                alt="" class="wp-image-1110" width="110" height="12" srcset="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png 933w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-768x86.png 768w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-720x80.png 720w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-850x104.png 850w"
+                                                                                                sizes="(max-width: 110px) 100vw, 110px" /-->
+                                                                                            <figcaption class="wp-element-caption">  Executive</figcaption>
+                                                                                        </figure>
+
+
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar" style="max-width: 170px;">
+																							{{ aboriginal_senior_leader_barchart|safe }}
+                                                                                            <!--img decoding="async"  loading="lazy"
+                                                                                                src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png"
+                                                                                                alt=""
+                                                                                                class="wp-image-1110"
+                                                                                                width="110" height="12"
+                                                                                                srcset="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png 933w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-768x86.png 768w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-720x80.png 720w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-850x104.png 850w"
+                                                                                                sizes="(max-width: 110px) 100vw, 110px" /-->
+                                                                                            <figcaption class="wp-element-caption"> Senior Leader </figcaption>
+                                                                                        </figure>
+
+
+
+                                                                                        <figure  class="wp-block-image size-full is-resized bar" style="max-width: 170px;">
+																							{{ aboriginal_manager_s_s_leader_barchart|safe }}
+                                                                                            <!--img decoding="async"
+                                                                                                loading="lazy"
+                                                                                                src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png"
+                                                                                                alt=""
+                                                                                                class="wp-image-1110"
+                                                                                                width="110" height="12"
+                                                                                                srcset="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png 933w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-768x86.png 768w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-720x80.png 720w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-850x104.png 850w"
+                                                                                                sizes="(max-width: 110px) 100vw, 110px" /-->
+                                                                                            <figcaption class="wp-element-caption"> Manager / Supervisor / Superintendent </figcaption>
+                                                                                        </figure>
+
+
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar" style="max-width: 170px;">
+																							{{ aboriginal_foreperson_leader_barchart|safe }}
+                                                                                            <!--img decoding="async"
+                                                                                                loading="lazy"
+                                                                                                src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png"
+                                                                                                alt=""
+                                                                                                class="wp-image-1110"
+                                                                                                width="110" height="12"
+                                                                                                srcset="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png 933w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-768x86.png 768w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-720x80.png 720w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-850x104.png 850w"
+                                                                                                sizes="(max-width: 110px) 100vw, 110px" /-->
+                                                                                            <figcaption class="wp-element-caption">Foreman</figcaption>
+                                                                                        </figure>
+
+
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar" style="max-width: 170px;">
+																							{{ aboriginal_individual_contributor_leader_barchart|safe }}
+                                                                                            <!--img decoding="async"
+                                                                                                loading="lazy"
+                                                                                                src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png"
+                                                                                                alt=""
+                                                                                                class="wp-image-1110"
+                                                                                                width="110" height="12"
+                                                                                                srcset="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png 933w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-768x86.png 768w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-720x80.png 720w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-850x104.png 850w"
+                                                                                                sizes="(max-width: 110px) 100vw, 110px" /-->
+                                                                                            <figcaption class="wp-element-caption"> Individual Contributor </figcaption>
+                                                                                        </figure>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+
+
+                                                                            <div class="is-layout-flow wp-block-column single-graph">
+                                                                                <div class="is-layout-flex wp-container-23 wp-block-columns">
+                                                                                    <div class="is-layout-flow wp-block-column">
+                                                                                        <!--figure class="wp-block-image size-full circle">
+                                                                                            <img decoding="async" width="470" height="466"  src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Pie_Chart.png"
+                                                                                                alt="" class="wp-image-1111" />
+                                                                                        </figure-->
+																						<div class="wp-block-image size-full circle">{{ disability_dchart1|safe }}</div>
+
+                                                                                        <h6 class="has-text-align-center circle-title"> Persons With Disabilities </h6>
+
+                                                                                        <div class="graph-info-colors">
+                                                                                            <div class="single-item-info">
+                                                                                                <img decoding="async" src="{% static 'images/BCMEA_Squares_3.png' %}"><span>Yes</span>
+                                                                                            </div>
+                                                                                            <div class="single-item-info">
+                                                                                                <img decoding="async"  src="{% static 'images/BCMEA_Squares_1.png' %}"><span>No</span>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+
+
+                                                                                <div class="is-layout-flex wp-container-25 wp-block-columns">
+                                                                                    <div class="is-layout-flow wp-block-column">
+                                                                                        <figure class="wp-block-image size-full is-resized bar" style="max-width: 170px;">
+																							{{ disability_executive_barchart|safe }}
+                                                                                            <!--img decoding="async"
+                                                                                                loading="lazy"
+                                                                                                src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png"
+                                                                                                alt=""
+                                                                                                class="wp-image-1110"
+                                                                                                width="110" height="12"
+                                                                                                srcset="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png 933w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-768x86.png 768w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-720x80.png 720w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-850x104.png 850w"
+                                                                                                sizes="(max-width: 110px) 100vw, 110px" /-->
+                                                                                            <figcaption class="wp-element-caption"> Executive</figcaption>
+                                                                                        </figure>
+
+
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar" style="max-width: 170px;">
+																							{{ disability_senior_leader_barchart|safe }}
+                                                                                            <!--img decoding="async"
+                                                                                                loading="lazy"
+                                                                                                src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png"
+                                                                                                alt=""
+                                                                                                class="wp-image-1110"
+                                                                                                width="110" height="12"
+                                                                                                srcset="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png 933w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-768x86.png 768w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-720x80.png 720w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-850x104.png 850w"
+                                                                                                sizes="(max-width: 110px) 100vw, 110px" /-->
+                                                                                            <figcaption class="wp-element-caption"> Senior Leader </figcaption>
+                                                                                        </figure>
+
+
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar" style="max-width: 170px;">
+																							{{ disability_manager_s_s_leader_barchart|safe }}
+                                                                                            <!--img decoding="async"
+                                                                                                loading="lazy"
+                                                                                                src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png"
+                                                                                                alt=""
+                                                                                                class="wp-image-1110"
+                                                                                                width="110" height="12"
+                                                                                                srcset="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png 933w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-768x86.png 768w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-720x80.png 720w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-850x104.png 850w"
+                                                                                                sizes="(max-width: 110px) 100vw, 110px" /-->
+                                                                                            <figcaption class="wp-element-caption"> Manager / Supervisor / Superintendent </figcaption>
+                                                                                        </figure>
+
+
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar" style="max-width: 170px;">
+																							{{ disability_foreperson_leader_barchart|safe }}
+                                                                                            <!--img decoding="async"
+                                                                                                loading="lazy"
+                                                                                                src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png"
+                                                                                                alt=""
+                                                                                                class="wp-image-1110"
+                                                                                                width="110" height="12"
+                                                                                                srcset="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png 933w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-768x86.png 768w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-720x80.png 720w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-850x104.png 850w"
+                                                                                                sizes="(max-width: 110px) 100vw, 110px" /-->
+                                                                                            <figcaption class="wp-element-caption">Foreman</figcaption>
+                                                                                        </figure>
+
+
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar" style="max-width: 170px;">
+																							{{ disability_individual_contributor_leader_barchart|safe }}
+                                                                                            <!--img decoding="async"
+                                                                                                loading="lazy"
+                                                                                                src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png"
+                                                                                                alt=""
+                                                                                                class="wp-image-1110"
+                                                                                                width="110" height="12"
+                                                                                                srcset="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png 933w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-768x86.png 768w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-720x80.png 720w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-850x104.png 850w"
+                                                                                                sizes="(max-width: 110px) 100vw, 110px" /-->
+                                                                                            <figcaption class="wp-element-caption"> Individual Contributor </figcaption>
+                                                                                        </figure>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+
+
+                                                                <div
+                                                                    class="is-content-justification-center is-layout-flex wp-container-30 wp-block-buttons mt-5">
+                                                                    <div class="wp-block-button yellow-btn btn"><a
+                                                                            class="wp-block-button__link wp-element-button" href="{% url 'company' %}"><b>COMPARE
+                                                                            WITH YOUR COMPANY DATA</b></a></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+
+                                                <div class="is-layout-flex wp-container-68 wp-block-columns section">
+                                                    <div class="is-layout-flow wp-block-column overview">
+                                                        <h3 class="header">COMPANY OVERVIEW</h3>
+
+
+
+                                                        <div
+                                                            class="is-layout-flex wp-container-66 wp-block-columns overview-inner-wrapper">
+                                                            <div
+                                                                class="is-layout-flow wp-block-column max-width-display manage-lable">
+                                                                <div
+                                                                    class="is-layout-flex wp-container-63 wp-block-columns">
+                                                                    <div class="is-layout-flow wp-block-column vertical-title-wrapper"
+                                                                        style="flex-basis:10px">
+                                                                        <p class="vertical-title">JOB LEVEL</p>
+                                                                    </div>
+
+
+
+                                                                    <div
+                                                                        class="is-layout-flow wp-block-column bar-labels-wrapper">
+                                                                        <div
+                                                                            class="is-layout-flex wp-container-37 wp-block-columns">
+                                                                            <div class="is-layout-flow wp-block-column">
+                                                                                <p>Executive</p>
+
+
+
+                                                                                <p>Senior Leader</p>
+
+
+
+                                                                                <p>Manager / Supervisor / Superintendent
+                                                                                </p>
+
+
+
+                                                                                <p>Foreman</p>
+
+
+
+                                                                                <p>Individual Contributor</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+
+
+                                                                    <div class="is-layout-flow wp-block-column d-flex">
+                                                                        <div class="is-layout-flex wp-container-49 wp-block-columns multi-graph-wrapper">
+                                                                            <div class="is-layout-flow wp-block-column single-graph">
+                                                                                <div class="is-layout-flex wp-container-40 wp-block-columns">
+                                                                                    <div class="is-layout-flow wp-block-column">
+                                                                                        <!--figure class="wp-block-image size-full circle">
+                                                                                            <img decoding="async" width="470" height="466" src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Pie_Chart.png"
+                                                                                                alt="" class="wp-image-1111" />
+                                                                                        </figure-->
+
+																						<div class="wp-block-image size-full circle">{{ Companydata_sex_dchart1|safe }}</div>
+
+                                                                                        <h6 class="has-text-align-center circle-title"> Sex</h6>
+
+
+
+                                                                                        <div class="graph-info-colors">
+                                                                                            <div class="single-item-info">
+                                                                                                <img decoding="async" src="{% static 'images/BCMEA_Squares_2.png' %}"><span>Male</span>
+                                                                                            </div>
+                                                                                            <div  class="single-item-info">
+                                                                                                <img decoding="async" src="{% static 'images/BCMEA_Squares_3.png' %}"><span>Female</span>
+                                                                                            </div>
+                                                                                            <div class="single-item-info">
+                                                                                                <img decoding="async" src="{% static 'images/BCMEA_Squares_1.png' %}"><span>Other</span>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+
+
+                                                                                <div class="is-layout-flex wp-container-42 wp-block-columns">
+                                                                                    <div class="is-layout-flow wp-block-column">
+                                                                                        <figure class="wp-block-image size-full is-resized bar" style="max-width: 170px;">
+																							{{ c_sex_executive_barchart|safe }}
+                                                                                            <figcaption class="wp-element-caption">Executive</figcaption>
+                                                                                        </figure>
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar" style="max-width: 170px;">
+                                                                                            {{ c_sex_senior_leader_barchart|safe }}
+																							<figcaption class="wp-element-caption">Senior Leader</figcaption>
+                                                                                        </figure>
+
+
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar" style="max-width: 170px;">
+																							{{ c_sex_manager_s_s_leader_barchart|safe }}
+                                                                                            <figcaption class="wp-element-caption"> Manager / Supervisor / Superintendent </figcaption>
+                                                                                        </figure>
+
+
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar" style="max-width: 170px;">
+																							{{ c_sex_foreperson_leader_barchart|safe }}
+                                                                                            <figcaption class="wp-element-caption">Foreman</figcaption>
+                                                                                        </figure>
+
+
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar" style="max-width: 170px;">
+																							{{ c_sex_individual_contributor_leader_barchart|safe }}
+                                                                                            <figcaption class="wp-element-caption"> Individual Contributor </figcaption>
+                                                                                        </figure>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+
+
+                                                                            <div class="is-layout-flow wp-block-column single-graph">
+                                                                                <div
+                                                                                    class="is-layout-flex wp-container-45 wp-block-columns">
+                                                                                    <div
+                                                                                        class="is-layout-flow wp-block-column">
+                                                                                        <!--figure
+                                                                                            class="wp-block-image size-full circle">
+                                                                                            <img decoding="async"
+                                                                                                width="470" height="466"
+                                                                                                src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Pie_Chart.png"
+                                                                                                alt=""
+                                                                                                class="wp-image-1111" />
+                                                                                        </figure-->
+
+																						<div class="wp-block-image size-full circle">{{ Companydata_minority_dchart1|safe }}</div>
+
+                                                                                        <h6 class="has-text-align-center circle-title"> Visible Minority</h6>
+
+                                                                                        <div class="graph-info-colors">
+                                                                                            <div class="single-item-info">
+                                                                                                <img decoding="async" src="{% static 'images//BCMEA_Squares_3.png' %}"><span>Yes</span>
+                                                                                            </div>
+                                                                                            <div class="single-item-info">
+                                                                                                <img decoding="async" src="{% static 'images//BCMEA_Squares_1.png' %}"><span>No</span>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+
+
+                                                                                <div class="is-layout-flex wp-container-47 wp-block-columns">
+                                                                                    <div class="is-layout-flow wp-block-column">
+                                                                                        <figure class="wp-block-image size-full is-resized bar" style="max-width: 170px;">
+																							{{ c_minority_executive_barchart|safe }}
+                                                                                            <!--img decoding="async"
+                                                                                                loading="lazy"
+                                                                                                src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png"
+                                                                                                alt=""
+                                                                                                class="wp-image-1110"
+                                                                                                width="110" height="12"
+                                                                                                srcset="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png 933w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-768x86.png 768w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-720x80.png 720w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-850x104.png 850w"
+                                                                                                sizes="(max-width: 110px) 100vw, 110px" /-->
+                                                                                            <figcaption class="wp-element-caption">Executive</figcaption>
+                                                                                        </figure>
+
+
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar" style="max-width: 170px;">
+																							{{ c_minority_senior_leader_barchart|safe }}
+                                                                                            <!--img decoding="async"
+                                                                                                loading="lazy"
+                                                                                                src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png"
+                                                                                                alt=""
+                                                                                                class="wp-image-1110"
+                                                                                                width="110" height="12"
+                                                                                                srcset="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png 933w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-768x86.png 768w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-720x80.png 720w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-850x104.png 850w"
+                                                                                                sizes="(max-width: 110px) 100vw, 110px" /-->
+                                                                                            <figcaption
+                                                                                                class="wp-element-caption">
+                                                                                                Senior Leader
+                                                                                            </figcaption>
+                                                                                        </figure>
+
+
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar" style="max-width: 170px;">
+																							{{ c_minority_manager_s_s_leader_barchart|safe }}
+                                                                                            <!--img decoding="async"
+                                                                                                loading="lazy"
+                                                                                                src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png"
+                                                                                                alt=""
+                                                                                                class="wp-image-1110"
+                                                                                                width="110" height="12"
+                                                                                                srcset="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png 933w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-768x86.png 768w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-720x80.png 720w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-850x104.png 850w"
+                                                                                                sizes="(max-width: 110px) 100vw, 110px" /-->
+                                                                                            <figcaption class="wp-element-caption"> Manager / Supervisor / Superintendent </figcaption>
+                                                                                        </figure>
+
+
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar" style="max-width: 170px;">
+																							{{ c_minority_foreperson_leader_barchart|safe }}
+                                                                                            <!--img decoding="async"
+                                                                                                loading="lazy"
+                                                                                                src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png"
+                                                                                                alt=""
+                                                                                                class="wp-image-1110"
+                                                                                                width="110" height="12"
+                                                                                                srcset="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png 933w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-768x86.png 768w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-720x80.png 720w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-850x104.png 850w"
+                                                                                                sizes="(max-width: 110px) 100vw, 110px" /-->
+                                                                                            <figcaption class="wp-element-caption"> Foreman</figcaption>
+                                                                                        </figure>
+
+
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar" style="max-width: 170px;">
+																							{{ c_minority_individual_contributor_leader_barchart|safe }}
+                                                                                            <!--img decoding="async"
+                                                                                                loading="lazy"
+                                                                                                src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png"
+                                                                                                alt=""
+                                                                                                class="wp-image-1110"
+                                                                                                width="110" height="12"
+                                                                                                srcset="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png 933w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-768x86.png 768w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-720x80.png 720w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-850x104.png 850w"
+                                                                                                sizes="(max-width: 110px) 100vw, 110px" /-->
+                                                                                            <figcaption class="wp-element-caption"> Individual Contributor </figcaption>
+                                                                                        </figure>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+
+
+                                                                    <div class="is-layout-flow wp-block-column d-flex">
+                                                                        <div class="is-layout-flex wp-container-61 wp-block-columns multi-graph-wrapper">
+                                                                            <div  class="is-layout-flow wp-block-column single-graph">
+                                                                                <div  class="is-layout-flex wp-container-52 wp-block-columns">
+                                                                                    <div  class="is-layout-flow wp-block-column">
+                                                                                        <!--figure class="wp-block-image size-full circle">
+                                                                                            <img decoding="async"
+                                                                                                width="470" height="466"
+                                                                                                src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Pie_Chart.png"
+                                                                                                alt=""
+                                                                                                class="wp-image-1111" />
+                                                                                        </figure-->
+
+																						<div class="wp-block-image size-full circle">{{ Companydata_aboriginal_dchart1|safe }}</div>
+
+
+                                                                                        <h6 class="has-text-align-center circle-title"> Aboriginal</h6>
+
+
+
+                                                                                        <div class="graph-info-colors">
+                                                                                            <div
+                                                                                                class="single-item-info">
+                                                                                                <img decoding="async"
+                                                                                                    src="{% static 'images/BCMEA_Squares_3.png' %}"><span>Yes</span>
+                                                                                            </div>
+                                                                                            <div
+                                                                                                class="single-item-info">
+                                                                                                <img decoding="async"
+                                                                                                    src="{% static 'images/BCMEA_Squares_1.png' %}"><span>No</span>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+
+
+                                                                                <div class="is-layout-flex wp-container-54 wp-block-columns">
+                                                                                    <div class="is-layout-flow wp-block-column">
+                                                                                        <figure class="wp-block-image size-full is-resized bar" style="max-width: 170px;">
+																							{{ c_aboriginal_executive_barchart|safe }}
+                                                                                            <!--img decoding="async"
+                                                                                                loading="lazy"
+                                                                                                src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png"
+                                                                                                alt=""
+                                                                                                class="wp-image-1110"
+                                                                                                width="110" height="12"
+                                                                                                srcset="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png 933w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-768x86.png 768w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-720x80.png 720w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-850x104.png 850w"
+                                                                                                sizes="(max-width: 110px) 100vw, 110px" /-->
+                                                                                            <figcaption class="wp-element-caption"> Executive</figcaption>
+                                                                                        </figure>
+
+
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar" style="max-width: 170px;">
+																							{{ c_aboriginal_senior_leader_barchart|safe }}
+                                                                                            <!--img decoding="async"
+                                                                                                loading="lazy"
+                                                                                                src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png"
+                                                                                                alt=""
+                                                                                                class="wp-image-1110"
+                                                                                                width="110" height="12"
+                                                                                                srcset="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png 933w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-768x86.png 768w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-720x80.png 720w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-850x104.png 850w"
+                                                                                                sizes="(max-width: 110px) 100vw, 110px" /-->
+                                                                                            <figcaption class="wp-element-caption"> Senior Leader </figcaption>
+                                                                                        </figure>
+
+
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar" style="max-width: 170px;">
+																							{{ c_aboriginal_manager_s_s_leader_barchart|safe }}
+                                                                                            <!--img decoding="async"
+                                                                                                loading="lazy"
+                                                                                                src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png"
+                                                                                                alt=""
+                                                                                                class="wp-image-1110"
+                                                                                                width="110" height="12"
+                                                                                                srcset="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png 933w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-768x86.png 768w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-720x80.png 720w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-850x104.png 850w"
+                                                                                                sizes="(max-width: 110px) 100vw, 110px" /-->
+                                                                                            <figcaption class="wp-element-caption"> Manager / Supervisor / Superintendent </figcaption>
+                                                                                        </figure>
+
+
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar" style="max-width: 170px;">
+																							{{ c_aboriginal_foreperson_leader_barchart|safe }}
+                                                                                            <!--img decoding="async"
+                                                                                                loading="lazy"
+                                                                                                src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png"
+                                                                                                alt=""
+                                                                                                class="wp-image-1110"
+                                                                                                width="110" height="12"
+                                                                                                srcset="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png 933w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-768x86.png 768w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-720x80.png 720w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-850x104.png 850w"
+                                                                                                sizes="(max-width: 110px) 100vw, 110px" /-->
+                                                                                            <figcaption class="wp-element-caption"> Foreman</figcaption>
+                                                                                        </figure>
+
+
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar" style="max-width: 170px;">
+																							{{ c_aboriginal_individual_contributor_leader_barchart|safe }}
+                                                                                            <!--img decoding="async"
+                                                                                                loading="lazy"
+                                                                                                src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png"
+                                                                                                alt=""
+                                                                                                class="wp-image-1110"
+                                                                                                width="110" height="12"
+                                                                                                srcset="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png 933w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-768x86.png 768w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-720x80.png 720w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-850x104.png 850w"
+                                                                                                sizes="(max-width: 110px) 100vw, 110px" /-->
+                                                                                            <figcaption class="wp-element-caption"> Individual Contributor </figcaption>
+                                                                                        </figure>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+
+
+                                                                            <div
+                                                                                class="is-layout-flow wp-block-column single-graph">
+                                                                                <div
+                                                                                    class="is-layout-flex wp-container-57 wp-block-columns">
+                                                                                    <div
+                                                                                        class="is-layout-flow wp-block-column">
+                                                                                        <!--figure
+                                                                                            class="wp-block-image size-full circle">
+                                                                                            <img decoding="async"
+                                                                                                width="470" height="466"
+                                                                                                src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Pie_Chart.png"
+                                                                                                alt=""
+                                                                                                class="wp-image-1111" />
+                                                                                        </figure-->
+
+
+																						<div class="wp-block-image size-full circle">{{ Companydata_disability_dchart1|safe }}</div>
+
+                                                                                        <h6
+                                                                                            class="has-text-align-center circle-title">
+                                                                                            Persons With Disabilities
+                                                                                        </h6>
+
+
+
+                                                                                        <div class="graph-info-colors">
+                                                                                            <div class="single-item-info">
+                                                                                                <img decoding="async"  src="{% static 'images/BCMEA_Squares_3.png' %}"><span>Yes</span>
+                                                                                            </div>
+                                                                                            <div class="single-item-info">
+                                                                                                <img decoding="async" src="{% static 'images/BCMEA_Squares_1.png' %}"><span>No</span>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+
+
+                                                                                <div class="is-layout-flex wp-container-59 wp-block-columns">
+                                                                                    <div class="is-layout-flow wp-block-column">
+                                                                                        <figure class="wp-block-image size-full is-resized bar" style="max-width: 170px;">
+																							{{ c_disability_executive_barchart|safe }}
+                                                                                            <!--img decoding="async"
+                                                                                                loading="lazy"
+                                                                                                src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png"
+                                                                                                alt=""
+                                                                                                class="wp-image-1110"
+                                                                                                width="110" height="12"
+                                                                                                srcset="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png 933w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-768x86.png 768w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-720x80.png 720w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-850x104.png 850w"
+                                                                                                sizes="(max-width: 110px) 100vw, 110px" /-->
+                                                                                            <figcaption class="wp-element-caption"> Executive</figcaption>
+                                                                                        </figure>
+
+
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar" style="max-width: 170px;">
+																							<!-- {{ c_disability_senior_leader_barchart|safe }} -->
+                                                                                            <!--img decoding="async"
+                                                                                                loading="lazy"
+                                                                                                src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png"
+                                                                                                alt=""
+                                                                                                class="wp-image-1110"
+                                                                                                width="110" height="12"
+                                                                                                srcset="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png 933w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-768x86.png 768w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-720x80.png 720w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-850x104.png 850w"
+                                                                                                sizes="(max-width: 110px) 100vw, 110px" /-->
+                                                                                            <figcaption class="wp-element-caption"> Senior Leader </figcaption>
+                                                                                        </figure>
+
+
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar" style="max-width: 170px;">
+																							{{ c_disability_manager_s_s_leader_barchart|safe }}
+                                                                                            <!--img decoding="async"
+                                                                                                loading="lazy"
+                                                                                                src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png"
+                                                                                                alt=""
+                                                                                                class="wp-image-1110"
+                                                                                                width="110" height="12"
+                                                                                                srcset="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png 933w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-768x86.png 768w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-720x80.png 720w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-850x104.png 850w"
+                                                                                                sizes="(max-width: 110px) 100vw, 110px" /-->
+                                                                                            <figcaption class="wp-element-caption"> Manager / Supervisor / Superintendent </figcaption>
+                                                                                        </figure>
+
+
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar" style="max-width: 170px;">
+																							{{ c_disability_foreperson_leader_barchart|safe }}
+                                                                                            <!--img decoding="async" sizes="(max-width: 110px) 100vw, 110px" /-->
+                                                                                            <figcaption class="wp-element-caption"> Foreman</figcaption>
+                                                                                        </figure>
+
+
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar" style="max-width: 170px;">
+																							{{ c_disability_individual_contributor_leader_barchart|safe }}
+                                                                                            <!--img decoding="async"
+                                                                                                loading="lazy"
+                                                                                                src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png"
+                                                                                                alt=""
+                                                                                                class="wp-image-1110"
+                                                                                                width="110" height="12"
+                                                                                                srcset="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png 933w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-768x86.png 768w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-720x80.png 720w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-850x104.png 850w"
+                                                                                                sizes="(max-width: 110px) 100vw, 110px" /-->
+                                                                                            <figcaption class="wp-element-caption"> Individual Contributor </figcaption>
+                                                                                        </figure>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+
+
+                                                                <div
+                                                                    class="is-content-justification-center is-layout-flex wp-container-64 wp-block-buttons mt-5">
+                                                                    <div class="wp-block-button yellow-btn btn"><a
+                                                                            class="wp-block-button__link wp-element-button" href="{% url 'company' %}"><b>COMPARE WITH INDUSTRY DATA</b></a></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- .entry-content -->
+
+                                </article><!-- #post-1082 -->
+
+                            </main><!-- #main -->
+                        </div><!-- #primary -->
+
+                    </div><!-- #content -->
+
+                </div>
+            </div>
+
+
+
+            <div id="sidebar-footer" class="footer-widgets" role="complementary">
+                <div class="container">
+                    <div class="row">
+                        <div class="sidebar-column col-md-3">
+                            <section id="block-8" class="widget widget_block widget_media_image">
+                                <figure class="wp-block-image size-full"><img decoding="async" loading="lazy"
+                                        width="1042" height="277"
+                                        src="http://bcmeahotsoupcreative.local/wp-content/uploads/2021/10/BCMEA_Assets_Logo_Footer-1.png"
+                                        alt="" class="wp-image-195"
+                                        srcset="https://wdei.hotsoupcreative.com/wp-content/uploads/2021/10/BCMEA_Assets_Logo_Footer-1.png 1042w, https://wdei.hotsoupcreative.com/wp-content/uploads/2021/10/BCMEA_Assets_Logo_Footer-1-768x204.png 768w, https://wdei.hotsoupcreative.com/wp-content/uploads/2021/10/BCMEA_Assets_Logo_Footer-1-720x191.png 720w"
+                                        sizes="(max-width: 1042px) 100vw, 1042px" /></figure>
+                            </section>
+                            <section id="nav_menu-2" class="widget widget_nav_menu"></section>
+                            <section id="block-10" class="widget widget_block">
+                                <p class="footer-social-container"><a
+                                        href="https://www.facebook.com/Waterfront-DEI-106669138398199"
+                                        target="_blank"><img decoding="async"
+                                            src="{% static 'images/BCMEA_Assets_Social_Media_Icons_Facebook.png' %}"
+                                            alt="Facebook" class="footer-social-img"></a><br><a
+                                        href="https://www.instagram.com/waterfrontdei/?utm_medium=copy_link"
+                                        target="_blank"><img decoding="async"
+                                            src="{% static 'images/BCMEA_Assets_Social_Media_Icons_Instagram.png' %}"
+                                            alt="Instagram" class="footer-social-img"></a><br>
+                                    <a href="https://twitter.com/WaterfrontDEI" target="_blank"><img decoding="async"
+                                            src="{% static 'images/BCMEA_Assets_Social_Media_Icons_Twitter.png' %}"
+                                            alt="Twitter" class="footer-social-img"></a>
+                                </p>
+                            </section>
+                            <section id="block-11" class="widget widget_block widget_text">
+                                <p class="footer-copyright">© WATERFRONT COUNCIL 2021 | PRIVACY POLICY</p>
+                            </section>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+
+
+{% endblock content %}
+
+
+

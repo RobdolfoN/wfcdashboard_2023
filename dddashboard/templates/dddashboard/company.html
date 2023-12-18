@@ -1,0 +1,1719 @@
+{%  extends 'dddashboard/dashboard_navbar_footer.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    
+</head>
+<style>
+    /* hide the modebar */
+    .modebar {
+      display: none !important;
+    }
+    
+</style>
+
+
+			<div id="content" class="site-content">
+
+				<div class="container">
+					<div class="row">
+						<div id="primary" class="content-area fullwidth col-md-12">
+							<main id="main" class="site-main" role="main">
+
+
+								<article id="post-1162" class="post-1162 page type-page status-publish hentry">
+									<header class="entry-header">
+										<h1 class="entry-title">Data Comparison</h1>
+									</header><!-- .entry-header -->
+
+
+									<div class="entry-content">
+
+
+
+										<div class="is-layout-flex wp-container-122 wp-block-columns main-section1 site-container">
+											<div class="is-layout-flow wp-block-column">
+												<h1>DIVERSITY DATA DASHBOARD</h1>
+
+
+
+												<div class="is-layout-flex wp-container-30 wp-block-columns section">
+													<div class="is-layout-flow wp-block-column overview collapsible">
+														<h3 class="header">SEX</h3>
+
+
+
+														<div class="is-layout-flex wp-container-28 wp-block-columns overview-inner-wrapper">
+															<div class="is-layout-flow wp-block-column max-width-display">
+																<div class="is-layout-flex wp-container-26 wp-block-columns">
+																	<div class="is-layout-flow wp-block-column d-flex right-devider">
+																		<div class="is-layout-flex wp-container-11 wp-block-columns multi-graph-wrapper">
+																			<div class="is-layout-flow wp-block-column single-graph">
+																				<div class="is-layout-flex wp-container-2 wp-block-columns">
+																					<div class="is-layout-flow wp-block-column bar">
+																						<h4 class="has-text-align-left weight-light">INDUSTRY DATA</h4>
+
+																						<p>This represents data from 7 waterfront employers. </p>
+																					</div>
+																				</div>
+
+
+
+																				<div class="is-layout-flex wp-container-4 wp-block-columns">
+																					<div class="is-layout-flow wp-block-column">
+																						<h6 class="bar-title bar">Job Level</h6>
+
+
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar">
+                                                                                            {% if sex_executive_barchart %}
+                                                                                            <div decoding="async" loading="lazy" alt="" class="wp-image-1110" width="110" height="12" sizes="(max-width: 110px) 100vw, 110px, "
+                                                                                                id="plot2"></div>
+                                                                                            {% else %}
+                                                                                                <p>No data available.</p>
+                                                                                            {% endif %}
+                                                                                            <figcaption class="wp-element-caption"> Executive</figcaption>
+                                                                                        </figure>
+
+																						<figure class="wp-block-image size-full is-resized bar">
+                                                                                            {% if sex_senior_leader_barchart %}
+																							<div decoding="async" loading="lazy" alt="" class="wp-image-1110" width="110" height="12" sizes="(max-width: 110px) 100vw, 110px" 
+                                                                                                id="plot3"></div>
+																								{% else %}
+																							<p>No data available.</p>
+																							{% endif %}
+                                                                                            <figcaption class="wp-element-caption"> Senior Leader </figcaption>
+                                                                                        </figure>
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar">
+																							{% if sex_manager_s_s_leader_barchart %}
+                                                                                            <div decoding="async" loading="lazy" alt="" class="wp-image-1110" width="110" height="12" sizes="(max-width: 110px) 100vw, 110px" id="plot4"></div>
+                                                                                            {% else %}
+																							<p>No data available.</p>
+																							{% endif %}
+																							<figcaption class="wp-element-caption">  Manager / Supervisor / Superintendent </figcaption>
+                                                                                        </figure>
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar">
+																							{% if sex_foreperson_leader_barchart %}
+                                                                                            <div decoding="async" loading="lazy" alt="" class="wp-image-1110" width="110" height="12" sizes="(max-width: 110px) 100vw, 110px" id="plot5"></div>
+                                                                                            {% else %}
+																							<p>No data available.</p>
+																							{% endif %}
+																							<figcaption class="wp-element-caption"> Foreman</figcaption>
+                                                                                        </figure>
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar">
+																							{% if sex_individual_contributor_leader_barchart %}
+                                                                                            <div decoding="async" loading="lazy" alt="" class="wp-image-1110" width="110" height="12" sizes="(max-width: 110px) 100vw, 110px" id="plot6"></div>
+                                                                                            {% else %}
+																							<p>No data available.</p>
+																							{% endif %}
+																							<figcaption class="wp-element-caption"> Individual Contributor </figcaption>
+                                                                                        </figure>
+																					</div>
+																				</div>
+																			</div>
+
+
+
+																			<div class="is-layout-flow wp-block-column single-graph">
+																				<div class="is-layout-flex wp-container-7 wp-block-columns">
+																					<div class="is-layout-flow wp-block-column">
+																						<figure class="wp-block-image size-full circle">
+																							<div id="plot1"></div>
+																						</figure>
+
+																						<h6	class="has-text-align-center circle-title">Sex</h6>
+
+																						<div class="graph-info-colors">
+																							<div class="single-item-info">
+																								<img decoding="async" src="{% static 'images/BCMEA_Squares_2.png' %}"><span>Male</span>
+																							</div>
+																							<div class="single-item-info">
+																								<img decoding="async" src="{% static 'images/BCMEA_Squares_3.png' %}"><span>Female</span>
+																							</div>
+																							<div class="single-item-info">
+																								<img decoding="async" src="{% static 'images/BCMEA_Squares_1.png' %}"><span>Other</span>
+																							</div>
+																						</div>
+																					</div>
+																				</div>
+
+
+
+																				<!-- <div class="is-layout-flex wp-container-9 wp-block-columns">
+																					<div class="is-layout-flow wp-block-column">
+																						<h6 class="bar-title bar">Company Size</h6>
+
+																						<figure class="wp-block-image size-full is-resized bar">
+																							<img decoding="async" src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png"
+																								alt="" class="wp-image-1110" width="110" height="12" srcset="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png 933w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-768x86.png 768w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-720x80.png 720w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-850x104.png 850w"
+																								sizes="(max-width: 110px) 100vw, 110px" />
+																							<figcaption class="wp-element-caption">Small</figcaption>
+																						</figure>
+
+
+
+																						<figure	class="wp-block-image size-full is-resized bar">
+																							<img decoding="async" src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png"
+																								alt=""	class="wp-image-1110" width="110" height="12" srcset="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png 933w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-768x86.png 768w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-720x80.png 720w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-850x104.png 850w"
+																								sizes="(max-width: 110px) 100vw, 110px" />
+																							<figcaption class="wp-element-caption">	Medium</figcaption>
+																						</figure>
+
+
+
+																						<figure class="wp-block-image size-full is-resized bar">
+																							<img decoding="async" src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png"
+																								alt="" class="wp-image-1110" width="110" height="12" srcset="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png 933w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-768x86.png 768w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-720x80.png 720w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-850x104.png 850w"
+																								sizes="(max-width: 110px) 100vw, 110px" />
+																							<figcaption class="wp-element-caption">	Large</figcaption>
+																						</figure>
+																					</div>
+																				</div> -->
+																			</div>
+																		</div>
+																	</div>
+																
+
+
+
+																	<div class="is-layout-flow wp-block-column d-flex">
+																		<div class="is-layout-flex wp-container-24 wp-block-columns multi-graph-wrapper">
+																			<div class="is-layout-flow wp-block-column single-graph">
+																				<div class="is-layout-flex wp-container-14 wp-block-columns">
+																					<div class="is-layout-flow wp-block-column bar">
+																						<h4 class="has-text-align-left weight-light"> {{companyname}} DATA</h4>
+
+																						<p>This represents your individual company’s data. </p>
+																					</div>
+																				</div>
+
+
+
+																				<div class="is-layout-flex wp-container-16 wp-block-columns">
+																					<div class="is-layout-flow wp-block-column">
+																						<h6 class="bar-title bar">Job Level</h6>
+
+																						<figure class="wp-block-image size-full is-resized bar">
+                                                                                            {% if c_sex_executive_barchart %}
+                                                                                            <div decoding="async" loading="lazy" alt="" class="wp-image-1110" width="110" height="12" sizes="(max-width: 110px) 100vw, 110px" id="plot26"></div>
+                                                                                            {% else %}
+                                                                                                <p>No data available.</p>
+                                                                                            {% endif %}
+                                                                                            <figcaption class="wp-element-caption">Executive</figcaption>
+                                                                                        </figure>
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar">
+                                                                                            {% if c_sex_senior_leader_barchart %}
+                                                                                            <div decoding="async" loading="lazy" alt="" class="wp-image-1110" width="110" height="12" sizes="(max-width: 110px) 100vw, 110px" id="plot27"></div>
+                                                                                            {% else %}
+                                                                                            <p>No data available.</p>
+                                                                                            {% endif %}
+																							<figcaption class="wp-element-caption">Senior Leader</figcaption>
+                                                                                        </figure>
+
+
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar">
+                                                                                            {% if c_sex_manager_s_s_leader_barchart %}
+                                                                                            <div decoding="async" loading="lazy" alt="" class="wp-image-1110" width="110" height="12" sizes="(max-width: 110px) 100vw, 110px" id="plot28"></div>
+																							{% else %}
+                                                                                            <p>No data available.</p>
+                                                                                            {% endif %}
+                                                                                            <figcaption class="wp-element-caption"> Manager / Supervisor / Superintendent </figcaption>
+                                                                                        </figure>
+
+
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar">
+                                                                                            {% if c_sex_foreperson_leader_barchart %}
+                                                                                            <div decoding="async" loading="lazy" alt="" class="wp-image-1110" width="110" height="12" sizes="(max-width: 110px) 100vw, 110px" id="plot29"></div>
+																							{% else %}
+                                                                                            <p>No data available.</p>
+                                                                                            {% endif %}
+                                                                                            <figcaption class="wp-element-caption">Foreman</figcaption>
+                                                                                        </figure>
+
+
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar">
+                                                                                            {% if c_sex_individual_contributor_leader_barchart %}
+                                                                                            <div decoding="async" loading="lazy" alt="" class="wp-image-1110" width="110" height="12" sizes="(max-width: 110px) 100vw, 110px" id="plot30"></div>
+																							{% else %}
+                                                                                            <p>No data available.</p>
+                                                                                            {% endif %}
+                                                                                            <figcaption class="wp-element-caption"> Individual Contributor </figcaption>
+                                                                                        </figure>
+																					</div>
+																				</div>
+																			</div>
+
+
+
+																			<div
+																				class="is-layout-flow wp-block-column single-graph">
+																				<div
+																					class="is-layout-flex wp-container-19 wp-block-columns">
+																					<div
+																						class="is-layout-flow wp-block-column">
+																						<figure class="wp-block-image size-full circle">
+																							<div id="plot25"></div>
+																						</figure>
+
+
+
+																						<h6	class="has-text-align-center circle-title">Sex</h6>
+
+
+
+																						<div class="graph-info-colors">
+																							<div
+																								class="single-item-info">
+																								<img decoding="async"
+																									src="{% static 'images/BCMEA_Squares_2.png' %}"><span>Male</span>
+																							</div>
+																							<div
+																								class="single-item-info">
+																								<img decoding="async"
+																									src="{% static 'images/BCMEA_Squares_3.png' %}"><span>Female</span>
+																							</div>
+																							<div
+																								class="single-item-info">
+																								<img decoding="async"
+																									src="{% static 'images/BCMEA_Squares_1.png' %}"><span>Other</span>
+																							</div>
+																						</div>
+																					</div>
+																				</div>
+
+
+
+																				<div
+																					class="is-layout-flex wp-container-22 wp-block-columns">
+																					<div
+																						class="is-layout-flow wp-block-column">
+																						<div
+																							class="is-content-justification-center is-layout-flex wp-container-20 wp-block-buttons">
+																							<div
+																								class="wp-block-button yellow-btn btn">
+																								<a class="wp-block-button__link wp-element-button" href="{% url 'demographic_sex' %}">DIVE DEEPER</a></div>
+																						</div>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+
+
+
+												<div
+													class="is-layout-flex wp-container-60 wp-block-columns section-bottom">
+													<div class="is-layout-flow wp-block-column overview collapsible">
+														<h3 class="header">VISIBLE MINORITY</h3>
+
+
+
+														<div
+															class="is-layout-flex wp-container-58 wp-block-columns overview-inner-wrapper close-tab">
+															<div
+																class="is-layout-flow wp-block-column max-width-display">
+																<div
+																	class="is-layout-flex wp-container-56 wp-block-columns">
+																	<div
+																		class="is-layout-flow wp-block-column d-flex right-devider">
+																		<div
+																			class="is-layout-flex wp-container-41 wp-block-columns multi-graph-wrapper">
+																			<div
+																				class="is-layout-flow wp-block-column single-graph">
+																				<div
+																					class="is-layout-flex wp-container-32 wp-block-columns">
+																					<div
+																						class="is-layout-flow wp-block-column bar">
+																						<h4
+																							class="has-text-align-left weight-light">
+																							INDUSTRY DATA</h4>
+
+
+
+																						<p>This represents data from 7 waterfront employers. </p>
+																					</div>
+																				</div>
+
+
+
+																				<div class="is-layout-flex wp-container-34 wp-block-columns">
+																					<div class="is-layout-flow wp-block-column">
+																						<h6 class="bar-title bar">Job Level</h6>
+
+
+
+																						<figure class="wp-block-image size-full is-resized bar">
+																							{% if minority_executive_barchart %}
+                                                                                            <div decoding="async" loading="lazy" alt="" class="wp-image-1110" width="110" height="12" sizes="(max-width: 110px) 100vw, 110px" id="plot8"></div>
+																							{% else %}
+                                                                                            <p>No data available.</p>
+                                                                                            {% endif %}
+                                                                                            <figcaption class="wp-element-caption"> Executive</figcaption>
+                                                                                        </figure>
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar">
+                                                                                            {% if minority_senior_leader_barchart %}
+																							<div decoding="async" loading="lazy" alt="" class="wp-image-1110" width="110" height="12" sizes="(max-width: 110px) 100vw, 110px" id="plot9"></div>
+																							{% else %}
+                                                                                            <p>No data available.</p>
+                                                                                            {% endif %}
+                                                                                            <figcaption class="wp-element-caption">
+                                                                                                Senior Leader
+                                                                                            </figcaption>
+                                                                                        </figure>
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar">
+                                                                                            {% if minority_manager_s_s_leader_barchart %}
+																							<div decoding="async" loading="lazy" alt="" class="wp-image-1110" width="110" height="12" sizes="(max-width: 110px) 100vw, 110px" id="plot10"></div>
+																							{% else %}
+                                                                                            <p>No data available.</p>
+                                                                                            {% endif %}
+                                                                                            <figcaption class="wp-element-caption"> Manager / Supervisor / Superintendent
+                                                                                            </figcaption>
+                                                                                        </figure>
+
+
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar">
+                                                                                            {% if minority_foreperson_leader_barchart %}
+																							<div decoding="async" loading="lazy" alt="" class="wp-image-1110" width="110" height="12" sizes="(max-width: 110px) 100vw, 110px" id="plot11"></div>
+																							{% else %}
+                                                                                            <p>No data available.</p>
+                                                                                            {% endif %}
+                                                                                            <figcaption class="wp-element-caption"> Foreman </figcaption>
+                                                                                        </figure>
+
+
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar">
+                                                                                            {% if minority_individual_contributor_leader_barchart %}
+																							<div decoding="async" loading="lazy" alt="" class="wp-image-1110" width="110" height="12" sizes="(max-width: 110px) 100vw, 110px" id="plot12"></div>
+																							{% else %}
+                                                                                            <p>No data available.</p>
+                                                                                            {% endif %}
+                                                                                            <figcaption class="wp-element-caption"> Individual Contributor </figcaption>
+                                                                                        </figure>
+																					</div>
+																				</div>
+																			</div>
+
+
+
+																			<div
+																				class="is-layout-flow wp-block-column single-graph">
+																				<div
+																					class="is-layout-flex wp-container-37 wp-block-columns">
+																					<div
+																						class="is-layout-flow wp-block-column">
+																						<figure
+																							class="wp-block-image size-full circle">
+																							<div id="plot7"></div>
+																						</figure>
+
+
+
+																						<h6 class="has-text-align-center circle-title">Visible Minority</h6>
+
+
+
+																						<div class="graph-info-colors">
+																							<!--div
+																								class="single-item-info">
+																								<img decoding="async"
+																									src="{% static 'images/BCMEA_Squares_2.png' %}"><span>Male</span>
+																							</div-->
+																							<div
+																								class="single-item-info">
+																								<img decoding="async"
+																									src="{% static 'images/BCMEA_Squares_3.png' %}"><span>Yes</span>
+																							</div>
+																							<div
+																								class="single-item-info">
+																								<img decoding="async"
+																									src="{% static 'images/BCMEA_Squares_1.png' %}"><span>No</span>
+																							</div>
+																						</div>
+																					</div>
+																				</div>
+
+
+
+																				<!-- <div
+																					class="is-layout-flex wp-container-39 wp-block-columns">
+																					<div
+																						class="is-layout-flow wp-block-column">
+																						<h6 class="bar-title bar">
+																							Company Size</h6>
+
+
+
+																						<figure
+																							class="wp-block-image size-full is-resized bar">
+																							<img decoding="async"
+																								src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png"
+																								alt=""
+																								class="wp-image-1110"
+																								width="110" height="12"
+																								srcset="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png 933w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-768x86.png 768w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-720x80.png 720w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-850x104.png 850w"
+																								sizes="(max-width: 110px) 100vw, 110px" />
+																							<figcaption
+																								class="wp-element-caption">
+																								Small</figcaption>
+																						</figure>
+
+
+
+																						<figure
+																							class="wp-block-image size-full is-resized bar">
+																							<img decoding="async"
+																								src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png"
+																								alt=""
+																								class="wp-image-1110"
+																								width="110" height="12"
+																								srcset="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png 933w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-768x86.png 768w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-720x80.png 720w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-850x104.png 850w"
+																								sizes="(max-width: 110px) 100vw, 110px" />
+																							<figcaption
+																								class="wp-element-caption">
+																								Medium</figcaption>
+																						</figure>
+
+
+
+																						<figure
+																							class="wp-block-image size-full is-resized bar">
+																							<img decoding="async"
+																								src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png"
+																								alt=""
+																								class="wp-image-1110"
+																								width="110" height="12"
+																								srcset="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png 933w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-768x86.png 768w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-720x80.png 720w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-850x104.png 850w"
+																								sizes="(max-width: 110px) 100vw, 110px" />
+																							<figcaption
+																								class="wp-element-caption">
+																								Large</figcaption>
+																						</figure>
+																					</div>
+																				</div> -->
+																			</div>
+																		</div>
+																	</div>
+
+
+
+																	<div class="is-layout-flow wp-block-column d-flex">
+																		<div
+																			class="is-layout-flex wp-container-54 wp-block-columns multi-graph-wrapper">
+																			<div
+																				class="is-layout-flow wp-block-column single-graph">
+																				<div
+																					class="is-layout-flex wp-container-44 wp-block-columns">
+																					<div
+																						class="is-layout-flow wp-block-column bar">
+																						<h4
+																							class="has-text-align-left weight-light">
+																							{{companyname}} DATA</h4>
+
+
+
+																						<p>This represents your individual company’s data. </p>
+																					</div>
+																				</div>
+
+
+
+																				<div class="is-layout-flex wp-container-46 wp-block-columns">
+																					<div class="is-layout-flow wp-block-column">
+																						<h6 class="bar-title bar">Job Level</h6>
+
+
+
+																						<figure class="wp-block-image size-full is-resized bar">
+                                                                                            {% if c_minority_executive_barchart %}
+                                                                                            <div decoding="async" loading="lazy" alt="" class="wp-image-1110" width="110" height="12" sizes="(max-width: 110px) 100vw, 110px" id="plot32"></div>
+																							{% else %}
+                                                                                            <p>No data available.</p>
+                                                                                            {% endif %}
+                                                                                            <figcaption class="wp-element-caption">Executive</figcaption>
+                                                                                        </figure>
+
+
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar">
+                                                                                            {% if c_minority_senior_leader_barchart %}
+                                                                                            <div decoding="async" loading="lazy" alt="" class="wp-image-1110" width="110" height="12" sizes="(max-width: 110px) 100vw, 110px" id="plot33"></div>
+																							{% else %}
+                                                                                            <p>No data available.</p>
+                                                                                            {% endif %}
+                                                                                            <figcaption class="wp-element-caption"> Senior Leader </figcaption>
+                                                                                        </figure>
+
+
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar">
+                                                                                            {% if c_minority_manager_s_s_leader_barchart %}
+                                                                                            <div decoding="async" loading="lazy" alt="" class="wp-image-1110" width="110" height="12" sizes="(max-width: 110px) 100vw, 110px" id="plot34"></div>
+																							{% else %}
+                                                                                            <p>No data available.</p>
+                                                                                            {% endif %}
+                                                                                            <figcaption class="wp-element-caption"> Manager / Supervisor / Superintendent </figcaption>
+                                                                                        </figure>
+
+
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar">
+                                                                                            {% if c_minority_foreperson_leader_barchart %}
+                                                                                            <div decoding="async" loading="lazy" alt="" class="wp-image-1110" width="110" height="12" sizes="(max-width: 110px) 100vw, 110px" id="plot35"></div>
+																							{% else %}
+                                                                                            <p>No data available.</p>
+                                                                                            {% endif %}
+                                                                                            <figcaption class="wp-element-caption"> Foreman</figcaption>
+                                                                                        </figure>
+
+
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar">
+                                                                                            {% if c_minority_individual_contributor_leader_barchart %}
+                                                                                            <div decoding="async" loading="lazy" alt="" class="wp-image-1110" width="110" height="12" sizes="(max-width: 110px) 100vw, 110px" id="plot36"></div>
+																							{% else %}
+                                                                                            <p>No data available.</p>
+                                                                                            {% endif %}
+                                                                                            <figcaption class="wp-element-caption"> Individual Contributor </figcaption>
+                                                                                        </figure>
+																					</div>
+																				</div>
+																			</div>
+
+
+
+																			<div
+																				class="is-layout-flow wp-block-column single-graph">
+																				<div
+																					class="is-layout-flex wp-container-49 wp-block-columns">
+																					<div
+																						class="is-layout-flow wp-block-column">
+																						<figure
+																							class="wp-block-image size-full circle">
+																							<div id="plot31"></div>
+																						</figure>
+
+
+
+																						<h6
+																							class="has-text-align-center circle-title">
+																							Visible Minority</h6>
+
+
+
+																						<div class="graph-info-colors">
+																							<!--div
+																								class="single-item-info">
+																								<img decoding="async"
+																									src="{% static 'images/BCMEA_Squares_2.png' %}"><span>Male</span>
+																							</div-->
+																							<div
+																								class="single-item-info">
+																								<img decoding="async"
+																									src="{% static 'images/BCMEA_Squares_3.png' %}"><span>Yes</span>
+																							</div>
+																							<div
+																								class="single-item-info">
+																								<img decoding="async"
+																									src="{% static 'images/BCMEA_Squares_1.png' %}"><span>No</span>
+																							</div>
+																						</div>
+																					</div>
+																				</div>
+
+
+
+																				<div
+																					class="is-layout-flex wp-container-52 wp-block-columns">
+																					<div
+																						class="is-layout-flow wp-block-column">
+																						<div
+																							class="is-content-justification-center is-layout-flex wp-container-50 wp-block-buttons">
+																							<div
+																								class="wp-block-button yellow-btn btn">
+																								<a
+																									class="wp-block-button__link wp-element-button" href="{% url 'demographic_minority' %}">DIVE DEEPER</a></div>
+																						</div>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+
+
+
+												<div
+													class="is-layout-flex wp-container-90 wp-block-columns section-bottom">
+													<div class="is-layout-flow wp-block-column overview collapsible">
+														<h3 class="header">ABORIGINAL</h3>
+
+
+
+														<div
+															class="is-layout-flex wp-container-88 wp-block-columns overview-inner-wrapper close-tab">
+															<div
+																class="is-layout-flow wp-block-column max-width-display">
+																<div
+																	class="is-layout-flex wp-container-86 wp-block-columns">
+																	<div
+																		class="is-layout-flow wp-block-column d-flex right-devider">
+																		<div
+																			class="is-layout-flex wp-container-71 wp-block-columns multi-graph-wrapper">
+																			<div
+																				class="is-layout-flow wp-block-column single-graph">
+																				<div
+																					class="is-layout-flex wp-container-62 wp-block-columns">
+																					<div
+																						class="is-layout-flow wp-block-column bar">
+																						<h4
+																							class="has-text-align-left weight-light">
+																							INDUSTRY DATA</h4>
+
+
+
+																						<p>This represents data from 7 waterfront employers. </p>
+																					</div>
+																				</div>
+
+
+
+																				<div
+																					class="is-layout-flex wp-container-64 wp-block-columns">
+																					<div
+																						class="is-layout-flow wp-block-column">
+																						<h6 class="bar-title bar">Job
+																							Level</h6>
+
+
+
+																							<figure class="wp-block-image size-full is-resized bar">
+																								{% if aboriginal_executive_barchart %}
+																								<div decoding="async" loading="lazy" alt="" class="wp-image-1110" width="110" height="12" sizes="(max-width: 110px) 100vw, 110px" id="plot14"></div>
+																								{% else %}
+                                                                                                <p>No data available.</p>
+                                                                                            	{% endif %}
+																								<figcaption class="wp-element-caption">  Executive</figcaption>
+																							</figure>
+	
+	
+	
+																							<figure class="wp-block-image size-full is-resized bar">
+																								{% if aboriginal_senior_leader_barchart %}
+																								<div decoding="async" loading="lazy" alt="" class="wp-image-1110" width="110" height="12" sizes="(max-width: 110px) 100vw, 110px" id="plot15"></div>
+																								{% else %}
+                                                                                                <p>No data available.</p>
+                                                                                            	{% endif %}
+																								<figcaption class="wp-element-caption"> Senior Leader </figcaption>
+																							</figure>
+	
+	
+	
+																							<figure  class="wp-block-image size-full is-resized bar">
+																								{% if aboriginal_manager_s_s_leader_barchart %}
+																								<div decoding="async" loading="lazy" alt="" class="wp-image-1110" width="110" height="12" sizes="(max-width: 110px) 100vw, 110px" id="plot16"></div>
+																								{% else %}
+                                                                                                <p>No data available.</p>
+                                                                                            	{% endif %}
+																								<figcaption class="wp-element-caption"> Manager / Supervisor / Superintendent </figcaption>
+																							</figure>
+	
+	
+	
+																							<figure class="wp-block-image size-full is-resized bar">
+																								{% if aboriginal_foreperson_leader_barchart %}
+																								<div decoding="async" loading="lazy" alt="" class="wp-image-1110" width="110" height="12" sizes="(max-width: 110px) 100vw, 110px" id="plot17"></div>
+																								{% else %}
+                                                                                                <p>No data available.</p>
+                                                                                            	{% endif %}
+																								<figcaption class="wp-element-caption">Foreman</figcaption>
+																							</figure>
+	
+	
+	
+																							<figure class="wp-block-image size-full is-resized bar">
+																								{% if aboriginal_individual_contributor_leader_barchart %}
+																								<div decoding="async" loading="lazy" alt="" class="wp-image-1110" width="110" height="12" sizes="(max-width: 110px) 100vw, 110px" id="plot18"></div>
+																								{% else %}
+                                                                                                <p>No data available.</p>
+                                                                                            	{% endif %}
+																								<figcaption class="wp-element-caption"> Individual Contributor </figcaption>
+																							</figure>
+																					</div>
+																				</div>
+																			</div>
+
+
+
+																			<div
+																				class="is-layout-flow wp-block-column single-graph">
+																				<div
+																					class="is-layout-flex wp-container-67 wp-block-columns">
+																					<div
+																						class="is-layout-flow wp-block-column">
+																						<figure
+																							class="wp-block-image size-full circle">
+																							<div id="plot13"></div>
+																						</figure>
+
+
+
+																						<h6
+																							class="has-text-align-center circle-title">
+																							Aboriginal</h6>
+
+
+
+																						<div class="graph-info-colors">
+																							<!--div
+																								class="single-item-info">
+																								<img decoding="async"
+																									src="{% static 'images/BCMEA_Squares_2.png' %}"><span>Male</span>
+																							</div-->
+																							<div
+																								class="single-item-info">
+																								<img decoding="async"
+																									src="{% static 'images/BCMEA_Squares_3.png' %}"><span>Yes</span>
+																							</div>
+																							<div
+																								class="single-item-info">
+																								<img decoding="async"
+																									src="{% static 'images/BCMEA_Squares_1.png' %}"><span>No</span>
+																							</div>
+																						</div>
+																					</div>
+																				</div>
+
+
+
+																				<!-- <div class="is-layout-flex wp-container-69 wp-block-columns">
+																					<div class="is-layout-flow wp-block-column">
+																						<h6 class="bar-title bar"> Company Size</h6>
+
+
+
+																						<figure class="wp-block-image size-full is-resized bar">
+																							<img decoding="async"
+																								src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png"
+																								alt=""
+																								class="wp-image-1110"
+																								width="110" height="12"
+																								srcset="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png 933w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-768x86.png 768w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-720x80.png 720w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-850x104.png 850w"
+																								sizes="(max-width: 110px) 100vw, 110px" />
+																							<figcaption	class="wp-element-caption"> Small</figcaption>
+																						</figure>
+
+
+
+																						<figure
+																							class="wp-block-image size-full is-resized bar">
+																							<img decoding="async"
+																								src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png"
+																								alt=""
+																								class="wp-image-1110"
+																								width="110" height="12"
+																								srcset="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png 933w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-768x86.png 768w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-720x80.png 720w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-850x104.png 850w"
+																								sizes="(max-width: 110px) 100vw, 110px" />
+																							<figcaption
+																								class="wp-element-caption">
+																								Medium</figcaption>
+																						</figure>
+
+
+
+																						<figure
+																							class="wp-block-image size-full is-resized bar">
+																							<img decoding="async"
+																								src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png"
+																								alt=""
+																								class="wp-image-1110"
+																								width="110" height="12"
+																								srcset="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png 933w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-768x86.png 768w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-720x80.png 720w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-850x104.png 850w"
+																								sizes="(max-width: 110px) 100vw, 110px" />
+																							<figcaption
+																								class="wp-element-caption">
+																								Large</figcaption>
+																						</figure>
+																					</div>
+																				</div> -->
+																			</div>
+																		</div>
+																	</div>
+
+
+
+																	<div class="is-layout-flow wp-block-column d-flex">
+																		<div
+																			class="is-layout-flex wp-container-84 wp-block-columns multi-graph-wrapper">
+																			<div
+																				class="is-layout-flow wp-block-column single-graph">
+																				<div
+																					class="is-layout-flex wp-container-74 wp-block-columns">
+																					<div
+																						class="is-layout-flow wp-block-column bar">
+																						<h4
+																							class="has-text-align-left weight-light">
+																							{{companyname}} DATA</h4>
+
+
+
+																						<p>This represents your individual company’s data. </p>
+																					</div>
+																				</div>
+
+
+
+																				<div
+																					class="is-layout-flex wp-container-76 wp-block-columns">
+																					<div
+																						class="is-layout-flow wp-block-column">
+																						<h6 class="bar-title bar">Job
+																							Level</h6>
+
+
+
+																							<figure class="wp-block-image size-full is-resized bar">
+																								{% if c_aboriginal_executive_barchart %}
+																								<div decoding="async" loading="lazy" alt="" class="wp-image-1110" width="110" height="12" sizes="(max-width: 110px) 100vw, 110px" id="plot38"></div>
+																								{% else %}
+																								<p>No data available.</p>
+																								{% endif %}
+																								<figcaption class="wp-element-caption"> Executive</figcaption>
+																							</figure>
+	
+	
+	
+																							<figure class="wp-block-image size-full is-resized bar">
+																								{% if c_aboriginal_senior_leader_barchart %}
+																								<div decoding="async" loading="lazy" alt="" class="wp-image-1110" width="110" height="12" sizes="(max-width: 110px) 100vw, 110px" id="plot39"></div>
+																								{% else %}
+																								<p>No data available.</p>
+																								{% endif %}
+																								<figcaption class="wp-element-caption"> Senior Leader </figcaption>
+																							</figure>
+	
+	
+	
+																							<figure class="wp-block-image size-full is-resized bar">
+																								{% if c_aboriginal_manager_s_s_leader_barchart %}
+																								<div decoding="async" loading="lazy" alt="" class="wp-image-1110" width="110" height="12" sizes="(max-width: 110px) 100vw, 110px" id="plot40"></div>
+																								{% else %}
+																								<p>No data available.</p>
+																								{% endif %}
+																								<figcaption class="wp-element-caption"> Manager / Supervisor / Superintendent </figcaption>
+																							</figure>
+	
+	
+	
+																							<figure class="wp-block-image size-full is-resized bar">
+																								{% if c_aboriginal_foreperson_leader_barchart %}
+																								<div decoding="async" loading="lazy" alt="" class="wp-image-1110" width="110" height="12" sizes="(max-width: 110px) 100vw, 110px" id="plot41"></div>
+																								{% else %}
+																								<p>No data available.</p>
+																								{% endif %}
+																								<figcaption class="wp-element-caption"> Foreman</figcaption>
+																							</figure>
+	
+	
+	
+																							<figure class="wp-block-image size-full is-resized bar">
+																								{% if c_aboriginal_individual_contributor_leader_barchart %}
+																								<div decoding="async" loading="lazy" alt="" class="wp-image-1110" width="110" height="12" sizes="(max-width: 110px) 100vw, 110px" id="plot42"></div>
+																								{% else %}
+																								<p>No data available.</p>
+																								{% endif %}
+																								<figcaption class="wp-element-caption"> Individual Contributor </figcaption>
+																							</figure>
+																					</div>
+																				</div>
+																			</div>
+
+
+
+																			<div
+																				class="is-layout-flow wp-block-column single-graph">
+																				<div
+																					class="is-layout-flex wp-container-79 wp-block-columns">
+																					<div
+																						class="is-layout-flow wp-block-column">
+																						<figure
+																							class="wp-block-image size-full circle">
+																							<div id="plot37"></div>
+																						</figure>
+
+
+
+																						<h6
+																							class="has-text-align-center circle-title">
+																							Aboriginal</h6>
+
+
+
+																						<div class="graph-info-colors">
+																							<!--div
+																								class="single-item-info">
+																								<img decoding="async"
+																									src="{% static 'images/BCMEA_Squares_2.png' %}"><span>Male</span>
+																							</div-->
+																							<div
+																								class="single-item-info">
+																								<img decoding="async"
+																									src="{% static 'images/BCMEA_Squares_3.png' %}"><span>Yes</span>
+																							</div>
+																							<div
+																								class="single-item-info">
+																								<img decoding="async"
+																									src="{% static 'images/BCMEA_Squares_1.png' %}"><span>No</span>
+																							</div>
+																						</div>
+																					</div>
+																				</div>
+
+
+
+																				<div class="is-layout-flex wp-container-82 wp-block-columns">
+																					<div class="is-layout-flow wp-block-column">
+																						<div class="is-content-justification-center is-layout-flex wp-container-80 wp-block-buttons">
+																							<div class="wp-block-button yellow-btn btn">
+																								<a class="wp-block-button__link wp-element-button" href="{% url 'demographic_aboriginal' %}">DIVE DEEPER</a></div>
+																						</div>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+
+
+
+												<div
+													class="is-layout-flex wp-container-120 wp-block-columns section-bottom">
+													<div class="is-layout-flow wp-block-column overview collapsible">
+														<h3 class="header">PERSONS WITH DISABILITIES</h3>
+
+
+
+														<div
+															class="is-layout-flex wp-container-118 wp-block-columns overview-inner-wrapper close-tab">
+															<div
+																class="is-layout-flow wp-block-column max-width-display">
+																<div
+																	class="is-layout-flex wp-container-116 wp-block-columns">
+																	<div
+																		class="is-layout-flow wp-block-column d-flex right-devider">
+																		<div
+																			class="is-layout-flex wp-container-101 wp-block-columns multi-graph-wrapper">
+																			<div
+																				class="is-layout-flow wp-block-column single-graph">
+																				<div
+																					class="is-layout-flex wp-container-92 wp-block-columns">
+																					<div
+																						class="is-layout-flow wp-block-column bar">
+																						<h4
+																							class="has-text-align-left weight-light">
+																							INDUSTRY DATA</h4>
+
+
+
+																						<p>This represents data from 7 waterfront employers. </p>
+																					</div>
+																				</div>
+
+
+
+																				<div
+																					class="is-layout-flex wp-container-94 wp-block-columns">
+																					<div
+																						class="is-layout-flow wp-block-column">
+																						<h6 class="bar-title bar">Job
+																							Level</h6>
+
+
+
+																							<figure class="wp-block-image size-full is-resized bar">
+																								<div decoding="async" loading="lazy" alt="" class="wp-image-1110" width="110" height="12" sizes="(max-width: 110px) 100vw, 110px" id="plot20"></div>
+																								
+																								<figcaption class="wp-element-caption"> Executive</figcaption>
+																							</figure>
+	
+	
+	
+																							<figure class="wp-block-image size-full is-resized bar">
+																								<div decoding="async" loading="lazy" alt="" class="wp-image-1110" width="110" height="12" sizes="(max-width: 110px) 100vw, 110px" id="plot21"></div>
+																								
+																								<figcaption class="wp-element-caption"> Senior Leader </figcaption>
+																							</figure>
+	
+	
+	
+																							<figure class="wp-block-image size-full is-resized bar">
+																								<div decoding="async" loading="lazy" alt="" class="wp-image-1110" width="110" height="12" sizes="(max-width: 110px) 100vw, 110px" id="plot22"></div>
+																								
+																								<figcaption class="wp-element-caption"> Manager / Supervisor / Superintendent </figcaption>
+																							</figure>
+	
+	
+	
+																							<figure class="wp-block-image size-full is-resized bar">
+																								<div decoding="async" loading="lazy" alt="" class="wp-image-1110" width="110" height="12" sizes="(max-width: 110px) 100vw, 110px" id="plot23"></div>
+																								
+																								<figcaption class="wp-element-caption">Foreman</figcaption>
+																							</figure>
+	
+	
+	
+																							<figure class="wp-block-image size-full is-resized bar">
+																								<div decoding="async" loading="lazy" alt="" class="wp-image-1110" width="110" height="12" sizes="(max-width: 110px) 100vw, 110px" id="plot24"></div>
+																								
+																								<figcaption class="wp-element-caption"> Individual Contributor </figcaption>
+																							</figure>
+																					</div>
+																				</div>
+																			</div>
+
+
+
+																			<div
+																				class="is-layout-flow wp-block-column single-graph">
+																				<div
+																					class="is-layout-flex wp-container-97 wp-block-columns">
+																					<div
+																						class="is-layout-flow wp-block-column">
+																						<figure
+																							class="wp-block-image size-full circle">
+																							<div id="plot19"></div>
+																						</figure>
+
+
+
+																						<h6 class="has-text-align-center circle-title">
+																							Persons with disabilities</h6>
+
+
+
+																						<div class="graph-info-colors">
+																							<!--div
+																								class="single-item-info">
+																								<img decoding="async"
+																									src="{% static 'images/BCMEA_Squares_2.png' %}"><span>Male</span>
+																							</div-->
+																							<div
+																								class="single-item-info">
+																								<img decoding="async"
+																									src="{% static 'images/BCMEA_Squares_3.png' %}"><span>Yes</span>
+																							</div>
+																							<div
+																								class="single-item-info">
+																								<img decoding="async"
+																									src="{% static 'images/BCMEA_Squares_1.png' %}"><span>No</span>
+																							</div>
+																						</div>
+																					</div>
+																				</div>
+
+
+
+																				<!-- <div class="is-layout-flex wp-container-99 wp-block-columns">
+																					<div
+																						class="is-layout-flow wp-block-column">
+																						<h6 class="bar-title bar">
+																							Company Size</h6>
+
+
+
+																						<figure
+																							class="wp-block-image size-full is-resized bar">
+
+																							<img decoding="async"
+																								src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png"
+																								alt=""
+																								class="wp-image-1110"
+																								width="110" height="12"
+																								srcset="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png 933w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-768x86.png 768w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-720x80.png 720w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-850x104.png 850w"
+																								sizes="(max-width: 110px) 100vw, 110px" />
+																							<figcaption
+																								class="wp-element-caption">
+																								Small</figcaption>
+																						</figure>
+
+
+
+																						<figure
+																							class="wp-block-image size-full is-resized bar">
+																							<img decoding="async"
+																								src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png"
+																								alt=""
+																								class="wp-image-1110"
+																								width="110" height="12"
+																								srcset="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png 933w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-768x86.png 768w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-720x80.png 720w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-850x104.png 850w"
+																								sizes="(max-width: 110px) 100vw, 110px" />
+																							<figcaption
+																								class="wp-element-caption">
+																								Medium</figcaption>
+																						</figure>
+
+
+
+																						<figure
+																							class="wp-block-image size-full is-resized bar">
+																							<img decoding="async"
+																								src="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png"
+																								alt=""
+																								class="wp-image-1110"
+																								width="110" height="12"
+																								srcset="https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph.png 933w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-768x86.png 768w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-720x80.png 720w, https://wdei.hotsoupcreative.com/wp-content/uploads/2022/11/BCMEA_Dashboard_Graph-850x104.png 850w"
+																								sizes="(max-width: 110px) 100vw, 110px" />
+																							<figcaption
+																								class="wp-element-caption">
+																								Large</figcaption>
+																						</figure>
+																					</div>
+																				</div> -->
+																			</div>
+																		</div>
+																	</div>
+
+
+
+																	<div class="is-layout-flow wp-block-column d-flex">
+																		<div
+																			class="is-layout-flex wp-container-114 wp-block-columns multi-graph-wrapper">
+																			<div
+																				class="is-layout-flow wp-block-column single-graph">
+																				<div
+																					class="is-layout-flex wp-container-104 wp-block-columns">
+																					<div
+																						class="is-layout-flow wp-block-column bar">
+																						<h4
+																							class="has-text-align-left weight-light">
+																							{{companyname}} DATA</h4>
+
+
+
+																						<p>This represents your individual company’s data. </p>
+																					</div>
+																				</div>
+
+
+
+																				<div
+																					class="is-layout-flex wp-container-106 wp-block-columns">
+																					<div
+																						class="is-layout-flow wp-block-column">
+																						<h6 class="bar-title bar">Job Level</h6>
+
+
+
+																						<figure class="wp-block-image size-full is-resized bar">
+                                                                                            {% if c_disability_executive_barchart %}
+                                                                                            <div decoding="async" loading="lazy" alt="" class="wp-image-1110" width="110" height="12" sizes="(max-width: 110px) 100vw, 110px" id="plot44"></div>
+																							{% else %}
+                                                                                            <p>No data available.</p>
+                                                                                            {% endif %}
+                                                                                            <figcaption class="wp-element-caption"> Executive</figcaption>
+                                                                                        </figure>
+
+
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar">
+                                                                                            {% if c_disability_senior_leader_barchart %}
+                                                                                            <div decoding="async" loading="lazy" alt="" class="wp-image-1110" width="110" height="12" sizes="(max-width: 110px) 100vw, 110px" id="plot45"></div>
+																							{% else %}
+                                                                                            <p>No data available.</p>
+                                                                                            {% endif %}
+                                                                                            <figcaption class="wp-element-caption"> Senior Leader </figcaption>
+                                                                                        </figure>
+
+
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar">
+                                                                                            {% if c_disability_manager_s_s_leader_barchart %}
+                                                                                            <div decoding="async" loading="lazy" alt="" class="wp-image-1110" width="110" height="12" sizes="(max-width: 110px) 100vw, 110px" id="plot46"></div>
+																							{% else %}
+                                                                                            <p>No data available.</p>
+                                                                                            {% endif %}
+                                                                                            <figcaption class="wp-element-caption"> Manager / Supervisor / Superintendent </figcaption>
+                                                                                        </figure>
+
+
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar">
+                                                                                            {% if c_disability_foreperson_leader_barchart %}
+                                                                                            <div decoding="async" loading="lazy" alt="" class="wp-image-1110" width="110" height="12" sizes="(max-width: 110px) 100vw, 110px" id="plot47"></div>
+																							{% else %}
+                                                                                            <p>No data available.</p>
+                                                                                            {% endif %}
+                                                                                            <figcaption class="wp-element-caption"> Foreman</figcaption>
+                                                                                        </figure>
+
+
+
+                                                                                        <figure class="wp-block-image size-full is-resized bar">
+                                                                                            {% if c_disability_individual_contributor_leader_barchart %}
+                                                                                            <div decoding="async" loading="lazy" alt="" class="wp-image-1110" width="110" height="12" sizes="(max-width: 110px) 100vw, 110px" id="plot48"></div>
+																							{% else %}
+                                                                                            <p>No data available.</p>
+                                                                                            {% endif %}
+                                                                                            <figcaption class="wp-element-caption"> Individual Contributor </figcaption>
+                                                                                        </figure>
+																					</div>
+																				</div>
+																			</div>
+
+
+
+																			<div
+																				class="is-layout-flow wp-block-column single-graph">
+																				<div
+																					class="is-layout-flex wp-container-109 wp-block-columns">
+																					<div
+																						class="is-layout-flow wp-block-column">
+																						<figure
+																							class="wp-block-image size-full circle">
+																							<div id="plot43"></div>
+																						</figure>
+
+
+
+																						<h6
+																							class="has-text-align-center circle-title">
+																							Person with disabilities</h6>
+
+
+
+																						<div class="graph-info-colors">
+																							<!--div
+																								class="single-item-info">
+																								<img decoding="async"
+																									src="{% static 'images/BCMEA_Squares_2.png' %}"><span>Male</span>
+																							</div-->
+																							<div
+																								class="single-item-info">
+																								<img decoding="async"
+																									src="{% static 'images/BCMEA_Squares_3.png' %}"><span>Yes</span>
+																							</div>
+																							<div
+																								class="single-item-info">
+																								<img decoding="async"
+																									src="{% static 'images/BCMEA_Squares_1.png' %}"><span>No</span>
+																							</div>
+																						</div>
+																					</div>
+																				</div>
+
+
+
+																				<div
+																					class="is-layout-flex wp-container-112 wp-block-columns">
+																					<div
+																						class="is-layout-flow wp-block-column">
+																						<div
+																							class="is-content-justification-center is-layout-flex wp-container-110 wp-block-buttons">
+																							<div
+																								class="wp-block-button yellow-btn btn">
+																								<a
+																									class="wp-block-button__link wp-element-button" href="{% url 'demographic_disability' %}">DIVE
+																									DEEPER</a></div>
+																						</div>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+
+
+										<script>
+											const allTabs = document.querySelectorAll(".collapsible.overview");
+											const allOverviewBlocks = document.querySelectorAll(".overview-inner-wrapper");
+
+											[...allTabs].map((block) => {
+												block.addEventListener("click", () => manageTabs(block));
+											});
+
+											function manageTabs(block) {
+												closeAllTabs();
+												let subject = block.querySelector(".overview-inner-wrapper");
+												subject.classList.toggle('close-tab');
+											}
+											function closeAllTabs() {
+												[...allOverviewBlocks].map((block) => {
+													block.classList.add('close-tab');
+												});
+											}
+										</script>
+									</div><!-- .entry-content -->
+
+								</article><!-- #post-1162 -->
+
+							</main><!-- #main -->
+						</div><!-- #primary -->
+
+					</div><!-- #content -->
+
+				</div>
+			</div>
+
+
+
+			<div id="sidebar-footer" class="footer-widgets" role="complementary">
+				<div class="container">
+					<div class="row">
+						<div class="sidebar-column col-md-3">
+							<section id="block-8" class="widget widget_block widget_media_image">
+								<figure class="wp-block-image size-full"><img decoding="async" loading="lazy"
+										width="1042" height="277"
+										src="http://bcmeahotsoupcreative.local/wp-content/uploads/2021/10/BCMEA_Assets_Logo_Footer-1.png"
+										alt="" class="wp-image-195"
+										srcset="https://wdei.hotsoupcreative.com/wp-content/uploads/2021/10/BCMEA_Assets_Logo_Footer-1.png 1042w, https://wdei.hotsoupcreative.com/wp-content/uploads/2021/10/BCMEA_Assets_Logo_Footer-1-768x204.png 768w, https://wdei.hotsoupcreative.com/wp-content/uploads/2021/10/BCMEA_Assets_Logo_Footer-1-720x191.png 720w"
+										sizes="(max-width: 1042px) 100vw, 1042px" /></figure>
+							</section>
+							<section id="nav_menu-2" class="widget widget_nav_menu"></section>
+							<section id="block-10" class="widget widget_block">
+								<p class="footer-social-container"><a
+										href="https://www.facebook.com/Waterfront-DEI-106669138398199"
+										target="_blank"><img decoding="async"
+											src="{% static 'images/BCMEA_Assets_Social_Media_Icons_Facebook.png' %}"
+											alt="Facebook" class="footer-social-img"></a><br><a
+										href="https://www.instagram.com/waterfrontdei/?utm_medium=copy_link"
+										target="_blank"><img decoding="async"
+											src="{% static 'images/BCMEA_Assets_Social_Media_Icons_Instagram.png' %}"
+											alt="Instagram" class="footer-social-img"></a><br>
+									<a href="https://twitter.com/WaterfrontDEI" target="_blank"><img decoding="async"
+											src="{% static 'images/BCMEA_Assets_Social_Media_Icons_Twitter.png' %}"
+											alt="Twitter" class="footer-social-img"></a>
+								</p>
+							</section>
+							<section id="block-11" class="widget widget_block widget_text">
+								<p class="footer-copyright">© WATERFRONT COUNCIL 2021 | PRIVACY POLICY</p>
+							</section>
+						</div>
+
+
+
+					</div>
+				</div>
+			</div>
+
+            <script>
+                var data = {{ sex_dchart1|safe }}; 
+                var layout = { autosize: true };
+                Plotly.newPlot('plot1', data, layout);
+            </script>
+            <script>
+                var data = {{ sex_executive_barchart|safe }}; 
+                var layout = { autosize: true };
+                Plotly.newPlot('plot2', data, layout);
+            </script>
+            <script>
+                var data = {{ sex_senior_leader_barchart|safe }};
+                var layout = { autosize: true }; 
+                Plotly.newPlot('plot3', data, layout);
+            </script>
+            <script>
+                var data = {{ sex_manager_s_s_leader_barchart|safe }}; 
+                var layout = { autosize: true }; 
+                Plotly.newPlot('plot4', data, layout);
+            </script>
+            <script>
+                var data = {{ sex_foreperson_leader_barchart|safe }}; 
+                var layout = { autosize: true }; 
+
+                Plotly.newPlot('plot5', data, layout);
+            </script>
+            <script>
+                var data = {{ sex_individual_contributor_leader_barchart|safe }}; 
+                var layout = { autosize: true }; 
+
+                Plotly.newPlot('plot6', data, layout);
+            </script>
+            <script>
+                var data = {{ minority_dchart1|safe }}; 
+                var layout = { autosize: true }; 
+
+                Plotly.newPlot('plot7', data, layout);
+            </script>
+            <script>
+                var data = {{ minority_executive_barchart|safe }};
+                var layout = { autosize: true }; 
+ 
+                Plotly.newPlot('plot8', data, layout);
+            </script>
+            <script>
+                var data = {{ minority_senior_leader_barchart|safe }}; 
+                var layout = { autosize: true }; 
+
+                Plotly.newPlot('plot9', data, layout);
+            </script>
+            <script>
+                var data = {{ minority_manager_s_s_leader_barchart|safe }}; 
+                var layout = { autosize: true }; 
+
+                Plotly.newPlot('plot10', data, layout);
+            </script>
+            <script>
+                var data = {{ minority_foreperson_leader_barchart|safe }}; 
+                var layout = { autosize: true }; 
+
+                Plotly.newPlot('plot11', data, layout);
+            </script>
+            <script>
+                var data = {{ minority_individual_contributor_leader_barchart|safe }};
+                var layout = { autosize: true }; 
+ 
+                Plotly.newPlot('plot12', data, layout);
+            </script>
+            <script>
+                var data = {{ aboriginal_dchart1|safe }}; 
+                var layout = { autosize: true }; 
+                Plotly.newPlot('plot13', data, layout);
+            </script>
+            <script>
+                var data = {{ aboriginal_executive_barchart|safe }}; 
+                var layout = { autosize: true }; 
+
+                Plotly.newPlot('plot14', data, layout);
+            </script>
+            <script>
+                var data = {{ aboriginal_senior_leader_barchart|safe }};
+                var layout = { autosize: true }; 
+ 
+                Plotly.newPlot('plot15', data, layout);
+            </script>
+            <script>
+                var data = {{ aboriginal_manager_s_s_leader_barchart|safe }};
+                var layout = { autosize: true }; 
+ 
+                Plotly.newPlot('plot16', data, layout);
+            </script>
+            <script>
+                var data = {{ aboriginal_foreperson_leader_barchart|safe }}; 
+                var layout = { autosize: true }; 
+
+                Plotly.newPlot('plot17', data, layout);
+            </script>
+            <script>
+                var data = {{ aboriginal_individual_contributor_leader_barchart|safe }};
+                var layout = { autosize: true }; 
+ 
+                Plotly.newPlot('plot18', data, layout);
+            </script>
+            <script>
+                var data = {{ disability_dchart1|safe }}; 
+                var layout = { autosize: true }; 
+
+                Plotly.newPlot('plot19', data, layout);
+            </script>
+            <script>
+                var data = {{ disability_executive_barchart|safe }}; 
+                var layout = { autosize: true }; 
+
+                Plotly.newPlot('plot20', data, layout);
+            </script>
+            <script>
+                var data = {{ disability_senior_leader_barchart|safe }}; 
+                var layout = { autosize: true }; 
+
+                Plotly.newPlot('plot21', data, layout);
+            </script>
+            <script>
+                var data = {{ disability_manager_s_s_leader_barchart|safe }}; 
+                var layout = { autosize: true }; 
+
+                Plotly.newPlot('plot22', data, layout);
+            </script>
+            <script>
+                var data = {{ disability_foreperson_leader_barchart|safe }};
+                var layout = { autosize: true }; 
+ 
+                Plotly.newPlot('plot23', data, layout);
+            </script>
+            <script>
+                var data = {{ disability_individual_contributor_leader_barchart|safe }}; 
+                var layout = { autosize: true }; 
+
+                Plotly.newPlot('plot24', data, layout);
+            </script>
+            <script>
+                var data = {{ Companydata_sex_dchart1|safe }}; 
+                var layout = { autosize: true }; 
+
+                Plotly.newPlot('plot25', data, layout);
+            </script>
+            <script>
+                var data = {{ c_sex_executive_barchart|safe }}; 
+                var layout = { autosize: true }; 
+
+                Plotly.newPlot('plot26', data, layout);
+            </script>
+            <script>
+                var data = {{ c_sex_senior_leader_barchart|safe }}; 
+                var layout = { autosize: true }; 
+
+                Plotly.newPlot('plot27', data, layout);
+            </script>
+            <script>
+                var data = {{ c_sex_manager_s_s_leader_barchart|safe }};
+                var layout = { autosize: true }; 
+ 
+                Plotly.newPlot('plot28', data, layout);
+            </script>
+            <script>
+                var data = {{ c_sex_foreperson_leader_barchart|safe }};
+                var layout = { autosize: true }; 
+ 
+                Plotly.newPlot('plot29', data, layout);
+            </script>
+            <script>
+                var data = {{ c_sex_individual_contributor_leader_barchart|safe }}; 
+                var layout = { autosize: true }; 
+
+                Plotly.newPlot('plot30', data, layout);
+            </script>
+            <script>
+                var data = {{ Companydata_minority_dchart1|safe }};
+                var layout = { autosize: true }; 
+ 
+                Plotly.newPlot('plot31', data, layout);
+            </script>
+            <script>
+                var data = {{ c_minority_executive_barchart|safe }};
+                var layout = { autosize: true }; 
+ 
+                Plotly.newPlot('plot32', data, layout);
+            </script>
+            <script>
+                var data = {{ c_minority_senior_leader_barchart|safe }};
+                var layout = { autosize: true }; 
+ 
+                Plotly.newPlot('plot33', data, layout);
+            </script>
+            <script>
+                var data = {{ c_minority_manager_s_s_leader_barchart|safe }};
+                var layout = { autosize: true }; 
+ 
+                Plotly.newPlot('plot34', data, layout);
+            </script>
+            <script>
+                var data = {{ c_minority_foreperson_leader_barchart|safe }}; 
+                var layout = { autosize: true }; 
+
+                Plotly.newPlot('plot35', data, layout);
+            </script>
+            <script>
+                var data = {{ c_minority_individual_contributor_leader_barchart|safe }}; 
+                var layout = { autosize: true }; 
+
+                Plotly.newPlot('plot36', data, layout);
+            </script>
+            <script>
+                var data = {{ Companydata_aboriginal_dchart1|safe }}; 
+                var layout = { autosize: true }; 
+
+                Plotly.newPlot('plot37', data, layout);
+            </script>
+            <script>
+                var data = {{ c_aboriginal_executive_barchart|safe }}; 
+                var layout = { autosize: true }; 
+
+                Plotly.newPlot('plot38', data, layout);
+            </script>
+            <script>
+                var data = {{ c_aboriginal_senior_leader_barchart|safe }};
+                var layout = { autosize: true }; 
+ 
+                Plotly.newPlot('plot39', data, layout);
+            </script>
+        <script>
+                var data = {{ c_aboriginal_manager_s_s_leader_barchart|safe }};
+                var layout = { autosize: true }; 
+
+                Plotly.newPlot('plot40', data, layout);
+            </script>
+        <script>
+                var data = {{ c_aboriginal_foreperson_leader_barchart|safe }};
+                var layout = { autosize: true }; 
+ 
+                Plotly.newPlot('plot41', data, layout);
+            </script>
+        <script>
+                var data = {{ c_aboriginal_individual_contributor_leader_barchart|safe }}; 
+                var layout = { autosize: true }; 
+
+                Plotly.newPlot('plot42', data, layout);
+            </script>
+        <script>
+                var data = {{ Companydata_disability_dchart1|safe }}; 
+                var layout = { autosize: true }; 
+
+                Plotly.newPlot('plot43', data, layout);
+            </script>
+        <script>
+                var data = {{ c_disability_executive_barchart|safe }};
+                var layout = { autosize: true }; 
+ 
+                Plotly.newPlot('plot44', data, layout);
+            </script>
+        <script>
+                var data = {{ c_disability_senior_leader_barchart|safe }}; 
+                var layout = { autosize: true }; 
+
+                Plotly.newPlot('plot45', data, layout);
+            </script>
+        <script>
+                var data = {{ c_disability_manager_s_s_leader_barchart|safe }}; 
+                var layout = { autosize: true }; 
+
+                Plotly.newPlot('plot46', data, layout);
+            </script>
+        <script>
+                var data = {{ c_disability_foreperson_leader_barchart|safe }}; 
+                var layout = { autosize: true }; 
+
+                Plotly.newPlot('plot47', data, layout);
+            </script>
+        <script>
+                var data = {{ c_disability_individual_contributor_leader_barchart|safe }}; 
+                var layout = { autosize: true }; 
+
+                Plotly.newPlot('plot48', data, layout);
+
+            </script>
+
+
+{% endblock content %}
+
+
