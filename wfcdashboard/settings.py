@@ -24,12 +24,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-(i_3cy7**6=jhakx8!g4)!c43i+!au$w+8s+c@xj=_#!yfh9zy'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
-# CSRF_TRUSTED_ORIGINS = ['https://dashboard.waterfrontdei.com/*']
-CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:8000']
+CSRF_TRUSTED_ORIGINS = ['https://dashboard.waterfrontdei.com/*']
+# CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:8000']
 
 
 # Application definition

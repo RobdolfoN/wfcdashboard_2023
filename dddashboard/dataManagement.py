@@ -1012,9 +1012,13 @@ def create_second_mostrecent_donut_chart(position, category, category_field, lab
     most_recent_date_str = int(most_recent_date_str)
     second_most_recent_date = (most_recent_date_str - 1)
     second_most_recent_date = f"{str(second_most_recent_date)}-01-01"
+    
+    total = 0
     for label, value in zip(labels, ['Y', 'N', 'O']):
         data[label] = CompanyData.objects.filter(**{category_field: value}, year_created=second_most_recent_date, position_category=position).count()
-    total = CompanyData.objects.all().count()
+        count = data[label]
+        total += count
+    # total = CompanyData.objects.all().count()
 
     # calculate the percentage of the hole_info
     hole_info = ((data[hole_info_text]*100)/total)
@@ -1901,46 +1905,100 @@ def q_sex_donut_industrychart(cached_queryset1):
 #     colors = [colour2, colour3]
 #     return q_create_donut_chart("Minority", "visible_minorities", labels, colors, "Yes", cached_queryset1)
 
-def q_minority_donut_industrychart(cached_queryset1):
-    cache_key = 'q_minority_donut_industrychart_{}'.format(cached_queryset1)
-    result = cache.get(cache_key)
-    if result is not None:
-        return result
+# def q_minority_donut_industrychart(cached_queryset1):
+#     cache_key = 'q_minority_donut_industrychart_{}'.format(cached_queryset1)
+#     result = cache.get(cache_key)
+#     if result is not None:
+#         return result
 
+#     most_recent_date = cached_queryset1.aggregate(Max('year_created'))['year_created__max']
+#     most_recent_date_str = most_recent_date.isoformat() if isinstance(most_recent_date, datetime.date) else most_recent_date
+#     yes = cached_queryset1.filter(visible_minorities='Y', year_created=most_recent_date_str).count()
+#     no = cached_queryset1.filter(visible_minorities='N', year_created=most_recent_date_str).count()
+#     total = cached_queryset1.filter(year_created=most_recent_date_str).count()
+
+#     labels = ['Yes', 'No']
+#     values = [yes, no]
+#     colors = [colour2, colour3]
+
+#     if total > 0:  # Prevent division by zero
+#         hole_info = ((yes * 100) / total)
+#     else:
+#         hole_info = 0
+#     hole_info = f"{round(hole_info)}%"
+
+#     # Use `hole` to create a donut-like pie chart
+#     fig = go.Figure(data=[go.Pie(labels=labels, values=values, hole=.6, marker=dict(colors=colors))])
+#     fig.update_layout(showlegend=False, height=175, autosize=True, margin=dict(t=0, b=0, l=0, r=0, pad=0), paper_bgcolor='#F4F9FA',
+#                       annotations=[
+#                           dict(text=hole_info, x=0.5, y=0.55, font_size=18, font_family="Roboto", font_color='#174F6D', showarrow=False),
+#                           dict(text='Yes', x=0.5, y=0.4, font_size=10, font_family="Roboto", font_color='#174F6D', showarrow=False)
+#                       ]
+#                       )
+    
+#     fig.update_traces(textinfo='none')
+#     config = {'displayModeBar': False}
+
+#     chart = json.dumps(fig.to_dict())
+
+#     # Set the cache with the new result
+#     cache.set(cache_key, (chart, hole_info))
+
+#     return chart, hole_info
+
+def q_minority_donut_industrychart(cached_queryset1):
+    # Get the most recent date from the queryset
     most_recent_date = cached_queryset1.aggregate(Max('year_created'))['year_created__max']
     most_recent_date_str = most_recent_date.isoformat() if isinstance(most_recent_date, datetime.date) else most_recent_date
+
+    # Count of 'Yes' and 'No' responses for the most recent date
     yes = cached_queryset1.filter(visible_minorities='Y', year_created=most_recent_date_str).count()
     no = cached_queryset1.filter(visible_minorities='N', year_created=most_recent_date_str).count()
-    total = cached_queryset1.filter(year_created=most_recent_date_str).count()
+    # total = cached_queryset1.filter(year_created=most_recent_date_str).count()
+    total = yes + no
 
     labels = ['Yes', 'No']
     values = [yes, no]
-    colors = [colour2, colour3]
+    colors = [colour2, colour3]  # Ensure colour2 and colour3 are defined
 
+    # # Calculate percentage of 'Yes' responses
+    # if total > 0:  # Prevent division by zero
+    #     hole_info = ((yes * 100) / total)
+    # else:
+    #     hole_info = 0
+    # hole_info_text = f"{round(hole_info)}%"  # Rounded percentage text
     if total > 0:  # Prevent division by zero
-        hole_info = ((yes * 100) / total)
+        hole_info_text = (yes*100) / total
+        hole_info_text = str(round(hole_info_text))+str('%')
     else:
         hole_info = 0
-    hole_info = f"{round(hole_info)}%"
+        hole_info_text = f"{round(hole_info)}%"  # Rounded percentage text
 
-    # Use `hole` to create a donut-like pie chart
+
+
+
+
+
+    # Creating a donut-like pie chart
     fig = go.Figure(data=[go.Pie(labels=labels, values=values, hole=.6, marker=dict(colors=colors))])
-    fig.update_layout(showlegend=False, height=175, autosize=True, margin=dict(t=0, b=0, l=0, r=0, pad=0), paper_bgcolor='#F4F9FA',
-                      annotations=[
-                          dict(text=hole_info, x=0.5, y=0.55, font_size=18, font_family="Roboto", font_color='#174F6D', showarrow=False),
-                          dict(text='Yes', x=0.5, y=0.4, font_size=10, font_family="Roboto", font_color='#174F6D', showarrow=False)
-                      ]
-                      )
+    fig.update_layout(
+        showlegend=False,
+        height=175,
+        autosize=True,
+        margin=dict(t=0, b=0, l=0, r=0, pad=0),
+        paper_bgcolor='#F4F9FA',
+        annotations=[
+            dict(text=hole_info_text, x=0.5, y=0.55, font_size=18, font_family="Roboto", font_color='#174F6D', showarrow=False),
+            dict(text='Yes', x=0.5, y=0.4, font_size=10, font_family="Roboto", font_color='#174F6D', showarrow=False)
+        ]
+    )
     
     fig.update_traces(textinfo='none')
     config = {'displayModeBar': False}
 
     chart = json.dumps(fig.to_dict())
 
-    # Set the cache with the new result
-    cache.set(cache_key, (chart, hole_info))
-
-    return chart, hole_info
+    return chart, hole_info_text
 
 
 
