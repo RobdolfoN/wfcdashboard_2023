@@ -401,7 +401,7 @@ def create_company(request):
 
 
 
-@admin_only
+
 def admin_dashboard(request):
 	if request.method == 'POST':
 		form = DataForm(request.POST, request.FILES)
