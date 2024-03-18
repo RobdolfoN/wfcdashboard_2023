@@ -1021,8 +1021,11 @@ def create_second_mostrecent_donut_chart(position, category, category_field, lab
     # total = CompanyData.objects.all().count()
 
     # calculate the percentage of the hole_info
-    hole_info = ((data[hole_info_text]*100)/total)
-    hole_info = str(round(hole_info))+str('%')
+    if total != 0:
+        hole_info = ((data[hole_info_text]*100)/total)
+        hole_info = str(round(hole_info))+str('%')
+    else:
+        hole_info = 0
     
 
     # Create the donut chart
